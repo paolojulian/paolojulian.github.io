@@ -1,0 +1,59 @@
+{
+  "homepage": "http://pipz.github.io",
+  "name": "portfolio",
+  "version": "1.0.1",
+  "description": "Paolo Vincent Julian",
+  "author": "Paolo Vincent Julian",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vincenius/static-website-template"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "start": "webpack-dev-server --mode=development --config",
+    "clean": "rimraf dist/*",
+    "build:css": "tailwindcss build src/css/index.css -o dist/index.css",
+    "build:js": "webpack --mode=production",
+    "build:html": "posthtml -c posthtml.json",
+    "build:images": "imagemin src/images/**/* --out-dir=dist/images",
+    "build": "run-s build:*",
+    "serve": "browser-sync start --server \"dist\" --files \"dist\"",
+    "watch:css": "onchange \"src/css\" -- npm run build:css",
+    "watch:html": "onchange \"src/views\" -- npm run build:html",
+    "watch:images": "onchange \"src/images\" -- npm run build:images",
+    "watch:js": "onchange \"src/js\" -- webpack --mode=development",
+    "watch": "run-p serve watch:*"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "css-loader": "^5.0.1",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "gh-pages": "^3.1.0",
+    "grunt-contrib-imagemin": "^4.0.0",
+    "htmlnano": "^0.2.5",
+    "imagemin-cli": "^6.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.1.0",
+    "postcss-cli": "^8.3.1",
+    "posthtml": "^0.12.0",
+    "posthtml-cli": "^0.5.2",
+    "posthtml-modules": "^0.4.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "aos": "^2.3.4",
+    "autoprefixer": "^10.1.0",
+    "axios": "^0.21.1",
+    "concurrently": "^5.3.0",
+    "postcss": "^8.2.1",
+    "tailwindcss": "^2.0.2"
+  }
+}
