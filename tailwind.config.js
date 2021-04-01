@@ -9,21 +9,22 @@ module.exports = {
   theme: {
     colors: {
       beige: '#808080',
-      teal: '#2195A5',
-      red: '#eb5757',
-      transparent: 'transparent',
+      black: '#000000',
       blue: colors.blue,
       gray: colors.warmGray,
       green: colors.green,
       indigo: colors.indigo,
-      pink: colors.pink,
-      violet: colors.violet,
-      yellow: colors.yellow,
       midnightBlue: {
         700: '#0F2027',
         600: '#203a43',
         300: '#2C5364'
-      }
+      },
+      pink: colors.pink,
+      red: '#eb5757',
+      teal: colors.teal,
+      transparent: 'transparent',
+      violet: colors.violet,
+      yellow: colors.yellow,
     },
     fontFamily: {
       body: ['Nunito']
