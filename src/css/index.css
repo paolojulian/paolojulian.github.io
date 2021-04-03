@@ -70,3 +70,19 @@ nav.nav-fixed {
 .gradient {
   background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
 }
+
+.app-pill {
+  @apply
+  bg-red
+  font-semibold
+  inline-block
+  mr-2
+  mt-2
+  py-1
+  px-2
+  uppercase
+  rounded-full
+  text-gray-50
+  text-xs
+  ;
+}
