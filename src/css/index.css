@@ -30,7 +30,7 @@ dialog {
 }
 
 a {
-  @apply text-teal-400;
+  @apply text-red;
 }
 .title {
   @apply text-3xl mb-8 tracking-wide;
@@ -73,7 +73,7 @@ nav a {
 }
 
 nav .active {
-  @apply text-blue-300;
+  @apply text-red;
 }
 
 nav.nav-bottom {
@@ -102,4 +102,33 @@ nav.nav-fixed {
   text-gray-50
   text-xs
   ;
+}
+
+button.app-button {
+  letter-spacing: 2px;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+}
+
+button.app-button span {
+  animation: animate 500ms linear infinite;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0.10;
+    height: 0px;
+    width: 0px;
+  }
+  100% {
+    opacity: 0;
+    height: 1000px;
+    width: 1000px;
+  }
 }

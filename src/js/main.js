@@ -1,14 +1,14 @@
-import { logSomething } from './module';
 import { openModal, closeModal } from './modal';
 import './navbar';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import AppButton from './components/app-button';
 // import axios from 'axios';
 
 // Initialize Animate on scroll
 AOS.init();
 
-logSomething('Hello World');
+customElements.define('app-button', AppButton, { extends: 'button' });
 
 window.closeModal = closeModal;
 
