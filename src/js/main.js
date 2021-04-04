@@ -1,14 +1,7 @@
 import { openModal, closeModal } from './modal';
+import './aos';
+import './components'
 import './navbar';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import AppButton from './components/app-button';
-// import axios from 'axios';
-
-// Initialize Animate on scroll
-AOS.init();
-
-customElements.define('app-button', AppButton, { extends: 'button' });
 
 window.closeModal = closeModal;
 
