@@ -10,25 +10,27 @@
 </div>
 
 <div class="flex flex-col items-stretch text-gray-50 text-sm">
-  <div class="flex items-stretch mb-2 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-anchor="#softSkills" data-aos-delay="600">
-    <div class="bg-teal-500 py-2 w-44 flex justify-center">Communication</div>
-    <div class="background bg-gray-300 w-full flex items-center">
-      <div class="thumb bg-teal-700 h-full" style="width: 70%;">&nbsp;</div>
-      <span class="px-2 text-gray-600">70%</span>
-    </div>
-  </div>
-  <div class="flex items-stretch mb-2 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-anchor="#softSkills" data-aos-delay="700">
-    <div class="bg-teal-500 py-2 w-44 flex justify-center">Fast Learner</div>
-    <div class="background bg-gray-300 w-full flex items-center">
-      <div class="thumb bg-teal-700 h-full" style="width: 90%;">&nbsp;</div>
-      <span class="px-2 text-gray-600">90&</span>
-    </div>
-  </div>
-  <div class="flex items-stretch mb-2 rounded-lg overflow-hidden" data-aos="fade-up" data-aos-anchor="#softSkills" data-aos-delay="800">
-    <div class="bg-teal-500 py-2 w-44 flex justify-center">Management</div>
-    <div class="background bg-gray-300 w-full flex items-center">
-      <div class="thumb bg-teal-700 h-full" style="width: 60%;">&nbsp;</div>
-      <span class="px-2 text-gray-600">60%</span>
-    </div>
-  </div>
+  <app-pill
+    title="Communication"
+    fill-percentage="70"
+    data-aos="fade-up"
+    data-aos-delay="600"
+    data-aos-anchor="#softSkills"
+  ></app-pill>
+
+  <app-pill
+    title="Fast Learner"
+    fill-percentage="90"
+    data-aos="fade-up"
+    data-aos-delay="700"
+    data-aos-anchor="#softSkills"
+  ></app-pill>
+
+  <app-pill
+    title="Management"
+    fill-percentage="50"
+    data-aos="fade-up"
+    data-aos-delay="800"
+    data-aos-anchor="#softSkills"
+  ></app-pill>
 </div>
