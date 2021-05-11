@@ -1,3 +1,8 @@
+import _ from 'lodash';
+
+// Carret down on top page
+const carretDown = document.querySelector('#carretDown');
+
 // Navbar
 const navbar = document.querySelector('nav#navbar');
 const home = navbar.querySelector('.home');
@@ -35,6 +40,9 @@ function onScroll() {
     navbar.classList.add('nav-bottom');
   }
 
+  // Remove carret down
+  carretDown.classList.toggle('opacity-0', pos > 0);
+
   // Top
   if (pos >= 0 && pos < sectionAbout.offsetTop) {
     highlightNavlink(home);
@@ -56,4 +64,4 @@ function onScroll() {
   }
 }
 
-document.addEventListener('scroll', onScroll);
+document.addEventListener('scroll', _.throttle(onScroll, 200));

@@ -53,6 +53,7 @@
     "autoprefixer": "^10.1.0",
     "axios": "^0.21.1",
     "concurrently": "^5.3.0",
+    "lodash": "^4.17.20",
     "postcss": "^8.2.1",
     "tailwindcss": "^2.0.2"
   }
