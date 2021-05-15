@@ -25,6 +25,7 @@ module.exports = {
       teal: colors.teal,
       transparent: 'transparent',
       violet: colors.violet,
+      white: '#ffffff',
       yellow: colors.yellow,
     },
     fontFamily: {
