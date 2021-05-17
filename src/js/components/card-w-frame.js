@@ -15,9 +15,7 @@ class CardWithFrame extends HTMLElement {
         flex-col
         min-w-0
         p-1
-        bg-gray-300
         break-words
-        bg-white
         w-full
         shadow-lg
         ease-linear
@@ -34,19 +32,23 @@ class CardWithFrame extends HTMLElement {
       <div class="
         absolute
         bg-gray-50
-        h-full
         bottom-0
+        flex
+        flex-col
+        justify-center
+        items-center
+        h-full
         left-0
         opacity-0
         group-hover:opacity-100
         transition-opacity
-        duration-700
+        duration-400
         w-full
       ">
-        <div>
-        ${this.getAttribute('title')}
+        <div class="font-bold text-xl">
+          ${this.getAttribute('title')}
         </div>
-        <div>
+        <div class="text-red font-semibold">
           ${this.getAttribute('subtitle') || ''}
         </div>
       </div>
