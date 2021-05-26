@@ -1,63 +1,73 @@
-<div class="flex flex-wrap items-center text-left">
+<div id="techStack" class="flex flex-wrap items-center text-left">
   <div class="w-full md:w-6/12 px-4 mr-auto ml-auto -mt-36">
     <div class="justify-center flex flex-wrap relative">
       <div class="my-4 w-full lg:w-6/12 px-4 lg:mt-16">
         <div
-          class="bg-blue-500 bg-opacity-95 shadow-lg rounded-lg text-center p-8 mt-8"
-        >
-          <img
-            alt="..."
-            class="shadow-md object-cover rounded-full max-w-full w-16 mx-auto p-1 bg-gray-50"
-            src="/images/mobile.png"
-          />
-          <p class="text-lg text-gray-50 mt-4 font-semibold">Mobile</p>
-          <p class="text-base text-gray-50 opacity-75 mt-2">
+          is="app-card"
+          class="bg-blue-500 bg-opacity-95 mt-8"
+          title="Mobile"
+          description="
             Experienced in creating lifestyle, travel, utility and business
             applications. Mostly includes the use of google maps and stripe
             payment
-          </p>
-        </div>
+          "
+          imageAlt="Mobile"
+          imageUrl="/images/mobile.png"
+          data-aos="fade-up"
+          data-aos-anchor="#techStack"
+          data-aos-delay="200"
+          data-aos-duration="800"
+        ></div>
       </div>
       <div class="my-4 w-full lg:w-6/12 px-4">
-        <div class="bg-green-500 shadow-lg rounded-lg text-center p-8">
-          <img
-            alt="..."
-            class="shadow-md rounded-full max-w-full w-16 mx-auto p-1 bg-gray-50"
-            src="/images/web.png"
-          />
-          <p class="text-lg text-gray-50 mt-4 font-semibold">Web</p>
-          <p class="text-base text-gray-50 opacity-75 mt-2">
+        <div
+          is="app-card"
+          class="bg-green-500"
+          title="Web"
+          description="
             Mostly developed management systems, ordering applications and
             entertainment websites.
-          </p>
-        </div>
-        <div class="my-4 bg-red shadow-lg rounded-lg text-center p-8">
-          <img
-            alt="..."
-            class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-gray-50"
-            src="/images/aws.png"
-          />
-          <p class="text-lg text-gray-50 mt-4 font-semibold">DevOPS</p>
-          <p class="text-base text-gray-50 opacity-75 mt-2">
-            Experience in AWS, Heroku, and Firebase.
-          </p>
-        </div>
+          "
+          imageAlt="..."
+          imageUrl="/images/web.png"
+          data-aos="fade-up"
+          data-aos-anchor="#techStack"
+          data-aos-duration="800"
+        ></div>
+        <div
+          is="app-card"
+          class="my-4 bg-red"
+          title="DevOPS"
+          description="Experience in AWS, Heroku, and Firebase."
+          imageAlt="..."
+          imageUrl="/images/aws.png"
+          data-aos="fade-up"
+          data-aos-anchor="#techStack"
+          data-aos-delay="400"
+          data-aos-duration="800"
+        ></div>
       </div>
     </div>
   </div>
   <div class="w-full md:w-4/12 px-12 md:px-4 ml-auto mr-auto">
     <div
       class="text-gray-500 bg-gray-50 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full"
+      data-aos="fade-up"
     >
       <i class="fas fa-drafting-compass text-xl"></i>
     </div>
-    <h3 class="text-3xl mb-2 font-semibold leading-normal">Tech stack</h3>
-    <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+    <h3 class="text-3xl mb-2 font-semibold leading-normal" data-aos="fade-up">
+      Tech stack
+    </h3>
+    <p
+      class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600"
+      data-aos="fade-up"
+    >
       Here is a list of my most used languages, frameworks and libraries up to
       date. I am still continuously learning new and better ways to provide the
       needs of end users.
     </p>
-    <div class="block pb-6">
+    <div class="block pb-6" data-aos="fade-up">
       <app-pill>VueJS</app-pill>
       <app-pill>ReactJS</app-pill>
       <app-pill>React-native</app-pill>
@@ -67,5 +77,13 @@
       <app-pill>Stripe</app-pill>
       <app-pill>Typescript</app-pill>
     </div>
+    <a
+      class="font-bold text-red hover:opacity-75 ease-linear transition-all duration-150"
+      href="https://stackshare.io/paolovincentarch/my-stack"
+      target="__blank"
+      data-aos="fade-up"
+    >
+      View all <i class="fa fa-angle-double-right ml-1 leading-relaxed"></i>
+    </a>
   </div>
 </div>

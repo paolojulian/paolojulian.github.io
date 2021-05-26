@@ -1,4 +1,4 @@
-class AppCard extends HTMLElement {
+class AppCard extends HTMLDivElement {
   constructor() {
     super();
     this.classList.add(
@@ -6,7 +6,6 @@ class AppCard extends HTMLElement {
       'rounded-lg',
       'text-center',
       'p-8',
-      'mt-8',
     );
 
     this.innerHTML = `
