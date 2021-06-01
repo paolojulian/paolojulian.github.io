@@ -14,7 +14,6 @@ class CardWithFrame extends HTMLElement {
         flex
         flex-col
         min-w-0
-        p-1
         break-words
         w-full
         shadow-lg
