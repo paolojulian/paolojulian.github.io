@@ -64,4 +64,4 @@ function onScroll() {
   }
 }
 
-document.addEventListener('scroll', _.throttle(onScroll, 1000));
+document.addEventListener('scroll', _.throttle(onScroll, 500));
