@@ -1,6 +1,6 @@
 .app-preloader {
   overflow: hidden;
-  background: radial-gradient(ellipse at bottom, #292524 0%, #000 100%);
+  background: radial-gradient(ellipse at bottom, #fbbf24 0%, #b45309 40%, #78350f 60%, #1c1917 100%);
 }
 
 .app-name {
@@ -567,6 +567,19 @@
     16px 1650px #f9fafb, 1021px 1075px #f9fafb, 723px 424px #f9fafb, 1175px 41px #f9fafb,
     494px 1957px #f9fafb, 1296px 431px #f9fafb, 175px 1507px #f9fafb, 831px 121px #f9fafb,
     498px 1947px #f9fafb, 617px 880px #f9fafb, 240px 403px #f9fafb;
+}
+
+.parallax-wrapper {
+  margin-inline: auto;
+}
+.parallax.buildings-0 {
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  z-index: 10;
+  background: url('../images//buildings-0.png') no-repeat center;
+  width: 101%;
+  height: 70%;
 }
 
 @keyframes animStar {

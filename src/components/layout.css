@@ -15,14 +15,14 @@ body {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: #080707;
+  background-color: #1c1917;
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   @apply bg-stone-300;
-  border: 5px solid #080707;
+  border: 5px solid #1c1917;
   border-radius: 10px;
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 body {
-  @apply bg-black text-stone-50;
+  @apply bg-stone-900 text-stone-50;
 }
 
 * {

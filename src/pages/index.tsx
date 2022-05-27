@@ -12,7 +12,7 @@ const UsingTypescript: React.FC<PageProps> = () => (
       description="Paolo Vincent Julian's portfolio website, contains list of project and hobbies"
     />
     <Preloader />
-    <div className="h-screen text-white z-10 bg-black">Test</div>
+    <div className="h-screen text-white z-10 bg-stone-900">Test</div>
   </Layout>
 )
 
