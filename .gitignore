@@ -1,5 +1,7 @@
 .package-lock.json
 .git
+.cache
+public
 /dist
 /node_modules
 .env
