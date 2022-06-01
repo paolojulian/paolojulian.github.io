@@ -1,6 +1,7 @@
 import * as React from "react"
+import Landing from "./Landing"
 
-import './Layout.css';
+import "./Layout.css"
 
 type LayoutProps = {
   children: React.ReactNode
@@ -8,8 +9,10 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => (
   <div className="flex flex-col">
-   {children}
+    <Landing>
+      {children}
+    </Landing>
   </div>
 )
 
-export default Layout;
+export default Layout

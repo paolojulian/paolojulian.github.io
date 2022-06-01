@@ -1,25 +1,51 @@
+html, 
+body {
+  overflow-y: hidden;
+}
 .parallax {
-  perspective: 200px;
-  overflow: hidden;
+  perspective: 100px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: absolute;
-  width: 100%;
   top: 0;
   left: 0;
   // left: 50%;
   right: 0;
   bottom: 0;
-  // margin-left: -600px;
+  // margin-left: -960px;
 
   &__layer {
+    @apply w-screen;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     img {
+      pointer-events: none;
       display: block;
       position: absolute;
       bottom: 0;
     }
   }
+  &__cover {
+    @apply bg-stone-900;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 2000px;
+    z-index: 2;
+  }
 }
 
+$parallax__layers: 12;
+
+@for $i from 0 through $parallax__layers {
+  $x: calc(($parallax__layers - $i) / 2);
+  $translateZ: calc(-100 * $x);
+  .parallax__layer__#{$i} {
+    transform: translateZ($translateZ + 0px) scale($x + 1);
+  }
+}

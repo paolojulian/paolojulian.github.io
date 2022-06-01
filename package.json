@@ -6,6 +6,7 @@
   "author": "Paolo Vincent Julian <paolovincentarch@gmail.com>",
   "dependencies": {
     "autoprefixer": "^10.4.7",
+    "compass-mixins": "^0.12.11",
     "gatsby": "^4.15.0",
     "gatsby-plugin-gatsby-cloud": "^4.15.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
