@@ -3,6 +3,7 @@ body {
   overflow-y: hidden;
 }
 .parallax {
+  background: #181a24;
   perspective: 100px;
   height: 100vh;
   overflow-x: hidden;
@@ -28,14 +29,21 @@ body {
       bottom: 0;
     }
   }
+  &__base {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
   &__cover {
-    @apply bg-stone-900;
+    background-color: #181a24;
     display: block;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    height: 2000px;
+    min-height: 2000px;
     z-index: 2;
   }
 }

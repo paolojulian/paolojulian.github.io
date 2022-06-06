@@ -1,28 +1,26 @@
+// If you don't want to use TypeScript you can delete this file!
 import * as React from "react"
 import { PageProps, graphql } from "gatsby"
 
-import Seo from "../components/seo"
 import Layout from "../components/Layout"
+import Seo from "../components/seo"
+import About from "../components/About"
 
-export interface HomeProps {
+type DataProps = {
   site: {
-    buildTime: String;
+    buildTime: string
   }
 }
 
-const UsingTypescript: React.FC<PageProps<HomeProps>> = ({ data }) => {
-  console.log(data)
-  return (
-    <Layout>
-      <Seo
-        title="Paolo Vincent Julian"
-        description="Paolo Vincent Julian's portfolio website, contains list of project and hobbies"
-      />
-      {/* <Preloader /> */}
-      <div className="h-screen text-white z-10">Test</div>
-    </Layout>
-  )
-}
+const UsingTypescript: React.FC<PageProps<DataProps>> = ({
+  data,
+  location,
+}) => (
+  <Layout>
+    <Seo title="Paolo Vincent Julian" />
+    <About />
+  </Layout>
+)
 
 export default UsingTypescript
 

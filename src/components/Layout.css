@@ -15,14 +15,14 @@ body {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: #1c1917;
+  background-color: #181a24;
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   @apply bg-stone-300;
-  border: 5px solid #1c1917;
+  border: 5px solid #181a24;
   border-radius: 10px;
 }
 
