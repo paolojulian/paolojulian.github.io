@@ -12,7 +12,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
       <div className="font-semibold italic text-4xl text-center text-green-600 mb-40">
         ## About ##
       </div>
-      <div className="flex items-center justify-center mx-auto">
+      <div className="flex items-start justify-center mx-auto">
         <div className="flex flex-col items-center justify-center">
           <div className="select-none rounded-full overflow-hidden border-2 border-stone-100 h-80 w-80">
             <StaticImage src="../../images/profile.jpg" alt="Profile" />
