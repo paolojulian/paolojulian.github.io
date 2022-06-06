@@ -32,7 +32,8 @@ body {
 }
 
 body {
-  @apply bg-stone-900 text-stone-50;
+  @apply text-stone-50;
+  background-color: #181a24;
 }
 
 * {
