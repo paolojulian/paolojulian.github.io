@@ -32,7 +32,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
             </p>
           </div>
         </div>
-        <div className="text-left w-full md:w-6/12 px-4 mr-auto ml-auto">
+        <div className="text-left w-full md:w-6/12 px-4 mx-auto">
           <HardSkills />
           <SoftSkills />
         </div>

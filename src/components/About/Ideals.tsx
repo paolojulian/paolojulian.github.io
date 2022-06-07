@@ -4,7 +4,7 @@ export interface IdealsProps {}
 
 const Ideals: FunctionComponent<IdealsProps> = props => {
   return (
-    <div className="flex flex-wrap justify-center items-start my-48 max-w-6xl mx-auto text-center">
+    <div className="flex flex-wrap justify-center items-start my-48 text-center">
       <div
         id="serviceFast"
         className="flex flex-col items-center justify-center px-4 w-6/12 md:w-1/4 mb-4"
