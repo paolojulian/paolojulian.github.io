@@ -5,7 +5,9 @@ import { PageProps, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import About from "../components/About"
+import Contact from "../components/Contact"
 import TechStack from "../components/TechStack"
+import Portfolio from "../components/Portfolio"
 
 type DataProps = {
   site: {
@@ -21,6 +23,8 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
     <Seo title="Paolo Vincent Julian" />
     <About />
     <TechStack />
+    <Portfolio />
+    <Contact />
   </Layout>
 )
 

@@ -10,8 +10,21 @@ type LandingProps = {
 
 const Landing: FC<LandingProps> = ({ children }) => {
   return (
-    <div className="position-relative h-screen bg-stone-900">
+    <section id="top" className="position-relative h-screen bg-stone-900">
       <div className="parallax">
+        {/* Paolo Julian */}
+        <div className="font-semibold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+          <h1 className="text-4xl md:text-5xl mb-8 tracking-wide">
+            <span className="text-sky-50">PAOLO</span>
+            <span className="text-slate-700">JULIAN</span>
+          </h1>
+          <div className="jobs text-gray-500 tracking-wide text-md md:text-lg text-left">
+            <h3>Full Stack Developer</h3>
+            <h3>Producer</h3>
+            <h3>Musician</h3>
+            <h3>Gamer</h3>
+          </div>
+        </div>
         <div className={`parallax__layer parallax__layer__1`}>
           <StaticImage
             quality={90}
@@ -46,7 +59,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
         </div>
         <div className="parallax__cover">{children}</div>
       </div>
-    </div>
+    </section>
   )
 }
 

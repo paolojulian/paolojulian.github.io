@@ -1,4 +1,6 @@
+import { StaticImage } from "gatsby-plugin-image"
 import React, { FunctionComponent } from "react"
+import PortfolioCard from "./PortfolioCard"
 
 export interface indexProps {}
 
@@ -6,87 +8,101 @@ const index: FunctionComponent<indexProps> = props => {
   return (
     <section
       id="portfolio"
-      className="justify-center text-center flex flex-wrap pt-16 pb-64 bg-gray-200"
+      className="justify-center text-center flex flex-wrap pt-32 pb-64 bg-slate-900"
     >
       <div className="w-full md:w-6/12 px-12 md:px-4">
-        <h2 className="font-semibold text-4xl">Portfolio</h2>
-        <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-700">
+        <h2 className="section-title mb-12">
+          Portfolio
+          <div className="pt-4 mx-auto w-32 border-b-4 border-sky-100"></div>
+        </h2>
+        <p className="text-lg leading-relaxed mt-4 mb-4 text-sky-100">
           These are some of the personal and professional projects i have done
           or collabed with in the past.
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center">
-        <div className="w-full md:w-auto px-4 md:px-0">
-          <div className="flex flex-wrap">
-            {/* <card-w-frame
-              image-alt="barter"
-              image-url="/images/barter.png"
-              title="Barter"
-              subtitle="React-native & ExpressJS"
-            ></card-w-frame>
-
-            <card-w-frame
-              image-alt="ASTA"
-              image-url="/images/asta.png"
-              title="ASTA"
-              subtitle="VanillaJS & Laravel"
-            ></card-w-frame>
-
-            <card-w-frame
-              image-alt="ArtFX"
-              image-url="/images/artfx.png"
-              title="Art FX"
-              subtitle="VueJS & ExpressJS"
-            ></card-w-frame> */}
-          </div>
-
-          <div className="flex flex-wrap">
-            {/* <card-w-frame
-              image-alt="lacosina"
-              image-url="/images/lacosina.png"
-              title="Lacosina"
-              subtitle="VanillaJS & Laravel"
-            ></card-w-frame>
-
-            <card-w-frame
-              image-alt="Hirano"
-              image-url="/images/hirano_order.png"
-              title="Hirano"
-              subtitle="VueJS & Laravel"
-            ></card-w-frame>
-
-            <card-w-frame
-              image-alt="passteam"
-              image-url="/images/passteam.png"
-              title="PassTeam"
-              subtitle="React & Laravel"
-            ></card-w-frame> */}
-          </div>
-
-          <div className="flex flex-wrap">
-            {/* <card-w-frame
-              image-alt="Sonomanmaso"
-              image-url="/images/sonomanmaso.png"
-              title="Sonomanmas-o"
-              subtitle="VanillaJS & Laravel"
-            ></card-w-frame>
-
-            <card-w-frame
-              image-alt="Yeomans soil sample"
-              image-url="/images/yeomans.png"
-              title="Yeomans PLOWS"
-              subtitle="React-native & ExpressJS"
-            ></card-w-frame>
-
-            <card-w-frame
-              image-alt="rainbow"
-              image-url="/images/rainbow-blurred.png"
-              title="Rainbow channel"
-              subtitle="VanillaJS & CakePHP"
-            ></card-w-frame> */}
-          </div>
-        </div>
+      <div className="flex flex-wrap max-w-screen-xl mx-auto justify-center">
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="barter"
+              src="../../images/portfolio/barter.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="asta"
+              src="../../images/portfolio/asta.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="ArtFX"
+              src="../../images/portfolio/artfx.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="lacosina"
+              src="../../images/portfolio/lacosina.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="hirano"
+              src="../../images/portfolio/hirano_order.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="passteam"
+              src="../../images/portfolio/passteam.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="sonomanmaso"
+              src="../../images/portfolio/sonomanmaso.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="yeomans"
+              src="../../images/portfolio/yeomans.png"
+              quality={90}
+            />
+          }
+        />
+        <PortfolioCard
+          Image={
+            <StaticImage
+              alt="rainbow-blurred"
+              src="../../images/portfolio/rainbow-blurred.png"
+              quality={90}
+            />
+          }
+        />
       </div>
     </section>
   )

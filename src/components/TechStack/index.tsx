@@ -1,14 +1,14 @@
 import { StaticImage } from "gatsby-plugin-image"
 import React, { FunctionComponent } from "react"
 import TechCard from "../Tools/TechCard"
-import DraftingCompassSolid from '../../images/svg/drafting-compass-solid.inline.svg';
+import DraftingIcon from '../../images/svg/drafting-compass-solid.inline.svg';
 import AppPill from "../Tools/AppPill";
 
 export interface indexProps {}
 
 const index: FunctionComponent<indexProps> = props => {
   return (
-    <section className="relative bg-slate-900 pb-16">
+    <section className="relative bg-slate-900">
       <div className="h-20 bg-slate-800 bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20">
         <svg
           className="absolute bottom-0 overflow-hidden"
@@ -80,7 +80,7 @@ const index: FunctionComponent<indexProps> = props => {
               className="text-gray-500 bg-gray-50 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full"
               data-aos="fade-up"
             >
-              <DraftingCompassSolid fill="#0f172a" />
+              <DraftingIcon width={30} fill="#0f172a" />
             </div>
             <h3
               className="text-3xl mb-2 font-semibold leading-normal"
