@@ -67,7 +67,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             src="../images/landing/parallax_7.png"
           />
         </div>
-        <div className={`parallax__layer parallax__layer__8`}>
+        <div className={`parallax__layer paralla  x__layer__8`}>
           <StaticImage
             className="h-full w-full"
             alt="Human"

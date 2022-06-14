@@ -12,7 +12,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => (
   <div className="flex flex-col">
     <Landing>
       <Navbar />
-      {children}
+      <main className="bg-sky-50">
+        {children}
+      </main>
     </Landing>
   </div>
 )

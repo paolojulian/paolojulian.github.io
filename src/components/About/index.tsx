@@ -8,13 +8,14 @@ export interface IntroductionProps {}
 
 const Introduction: FunctionComponent<IntroductionProps> = props => {
   return (
-    <section title="About Me" id="AboutMe" className="pt-32 max-w-screen-lg mx-auto">
-      <div className="font-semibold italic text-4xl text-center text-green-600 mb-40">
-        ## About ##
+    <section title="About Me" id="about" className="py-32 bg-slate-800">
+      <div className="container max-w-screen-lg mx-auto">
+      <div className="font-semibold italic text-4xl text-center uppercase mb-24">
+        About
       </div>
       <div className="flex items-start justify-center mx-auto">
         <div className="flex flex-col items-center justify-center">
-          <div className="select-none rounded-full overflow-hidden border-2 border-stone-100 h-80 w-80">
+          <div className="select-none rounded-full overflow-hidden border-2 border-sky-300 h-80 w-80">
             <StaticImage src="../../images/profile.jpg" alt="Profile" />
           </div>
           <div className="max-w-md text-center mt-4">
@@ -38,6 +39,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
         </div>
       </div>
       <Ideals />
+      </div>
     </section>
   )
 }

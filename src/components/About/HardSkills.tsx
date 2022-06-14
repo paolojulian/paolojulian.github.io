@@ -7,7 +7,7 @@ const Skills: FunctionComponent<SkillsProps> = props => {
   return (
     <>
       <div id="hardSkills" className="flex items-center mb-6" data-aos="fade-up">
-        <div className="text-pink-600 p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-gray-50">
+        <div className="text-sky-50 p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

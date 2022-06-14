@@ -10,7 +10,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        black: '#080707',
+        black: '#181a24',
       },
       keyframes: {
         'wavy': {

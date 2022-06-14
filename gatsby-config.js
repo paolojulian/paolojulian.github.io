@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Paolo Vincent Julian Portfolio`,
+    description: `Portfolio`,
+    author: `@paolojulian`,
+    siteUrl: `https://paolojulian.github.io/`,
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -22,6 +22,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/
+        },
       },
     },
     `gatsby-transformer-sharp`,
@@ -49,7 +57,7 @@ module.exports = {
         fonts: [
           `sail`,
           `Nunito\:300,400,400i,700`, // you can also specify font weights and styles
-          `Architects Daughter`
+          `Architects Daughter`,
         ],
         display: "swap",
       },

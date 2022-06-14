@@ -37,12 +37,7 @@ body {
     width: 100%;
   }
   &__cover {
-    background-color: #181a24;
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    @apply bg-black block absolute left-0 right-0 top-full pt-36;
     min-height: 2000px;
     z-index: 2;
   }

@@ -11,7 +11,7 @@ const ProgressBar: FunctionComponent<ProgressBarProps> = ({
 }) => {
   return (
     <div className="flex items-stretch mb-2 rounded-lg overflow-hidden">
-      <div className="bg-pink-400 bg-opacity-80 py-2 w-44 flex justify-center">
+      <div className="bg-orange-500 bg-opacity-80 py-1 w-48 flex text-base font-medium justify-center">
         {title}
       </div>
       <div className="background bg-gray-300 w-full flex items-center">

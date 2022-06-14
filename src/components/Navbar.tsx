@@ -6,7 +6,7 @@ const Navbar: FunctionComponent<NavbarProps> = props => {
   return (
     <nav
       id="navbar"
-      className="sticky top-0 left-0 right-0 z-10 w-full h-14 bg-gray-800"
+      className="sticky top-0 left-0 right-0 z-10 w-full h-14 bg-black border-b-2 border-b-sky-300"
     >
       <div className="mx-auto max-w-screen-lg h-full">
         <div className="flex text-gray-50 justify-center md:justify-end items-center h-full tracking-wider">
