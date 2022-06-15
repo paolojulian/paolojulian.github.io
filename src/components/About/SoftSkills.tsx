@@ -8,7 +8,7 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
     <>
       <div
         id="softSkills"
-        className="flex items-center mb-6"
+        className="flex flex-row-reverse md:flex-row items-center mb-6"
         data-aos="fade-up"
         data-aos-delay="600"
         data-aos-anchor="#hardSkills"
@@ -16,7 +16,7 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
         <div className="text-sky-50 p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            fill="#ffffff"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
@@ -28,7 +28,7 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
             />
           </svg>
         </div>
-        <h3 className="text-2xl ml-4 font-semibold leading-normal">Soft Skills</h3>
+        <h3 className="text-2xl mx-4 font-semibold leading-normal">Soft Skills</h3>
       </div>
 
       <div className="flex flex-col items-stretch text-gray-50 text-sm">

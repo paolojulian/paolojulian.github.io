@@ -14,8 +14,8 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
           About
           <div className="pt-4 mx-auto w-32 border-b-4 border-sky-100"></div>
         </div>
-        <div className="flex items-start justify-center mx-auto">
-          <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col md:flex-row items-start justify-center mx-auto">
+          <div className="flex flex-col items-center justify-center mx-auto mb-24 md:mb-0">
             <div className="select-none rounded-full overflow-hidden border-2 border-sky-300 h-80 w-80">
               <StaticImage src="../../images/profile.jpg" alt="Profile" />
             </div>
