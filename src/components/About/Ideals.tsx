@@ -28,21 +28,8 @@ const Ideals: FunctionComponent<IdealsProps> = props => {
             />
           </svg>
         </div>
-        <div
-          className="text-2xl mb-2 font-bold"
-          data-aos="fade-left"
-          data-aos-delay="200"
-          data-aos-anchor="#serviceFast"
-        >
-          Fast
-        </div>
-        <div
-          data-aos="fade-right"
-          data-aos-anchor="#serviceFast"
-          data-aos-delay="500"
-        >
-          Fast load times and lag free interaction.
-        </div>
+        <div className="text-2xl mb-2 font-bold">Fast</div>
+        <div>Fast load times and lag free interaction.</div>
       </div>
 
       <div

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react"
 
 export interface ProgressBarProps {
-  title: String
-  fillPercentage: Number
+  title: string
+  fillPercentage: number
 }
 
 const ProgressBar: FunctionComponent<ProgressBarProps> = ({
@@ -10,7 +10,9 @@ const ProgressBar: FunctionComponent<ProgressBarProps> = ({
   fillPercentage,
 }) => {
   return (
-    <div className="flex items-stretch mb-2 rounded-lg overflow-hidden">
+    <div
+      className="flex items-stretch mb-2 rounded-lg overflow-hidden"
+    >
       <div className="bg-orange-500 bg-opacity-80 py-1 w-48 flex text-base font-medium justify-center">
         {title}
       </div>
@@ -21,7 +23,9 @@ const ProgressBar: FunctionComponent<ProgressBarProps> = ({
         >
           &nbsp;
         </div>
-        <span className="px-2 text-gray-600 text-sm">{String(fillPercentage)}%</span>
+        <span className="px-2 text-gray-600 text-sm">
+          {String(fillPercentage)}%
+        </span>
       </div>
     </div>
   )

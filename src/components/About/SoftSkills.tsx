@@ -55,10 +55,9 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
       <div className="flex flex-col items-stretch text-gray-50 text-sm">
         {contentfulPortfolio.softSkills.map((skill, i) => (
           <ProgressBar
+            key={skill.id}
             title={skill.name}
             fillPercentage={skill.value}
-            data-aos="fade-up"
-            data-aos-delay={i * 100 + 500}
             data-aos-anchor="#softSkills"
           ></ProgressBar>
         ))}
