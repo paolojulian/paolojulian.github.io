@@ -3,10 +3,21 @@ import React, { FunctionComponent } from "react"
 import Ideals from "./Ideals"
 import HardSkills from "./HardSkills"
 import SoftSkills from "./SoftSkills"
+import { graphql, useStaticQuery } from "gatsby"
 
 export interface IntroductionProps {}
 
 const Introduction: FunctionComponent<IntroductionProps> = props => {
+  const { contentfulPortfolio } = useStaticQuery(
+    graphql`
+      query {
+        contentfulPortfolio {
+          description
+        }
+      }
+    `
+  );
+
   return (
     <section title="About Me" id="about" className="py-32 bg-slate-800">
       <div className="container max-w-screen-lg mx-auto">
@@ -24,10 +35,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
                 WHO IS THIS GUY?
               </p>
               <p className="ml-6">
-                He is a Software Engineer for Yondu. He does a lot of javascript
-                and front-end coding. He is a fast learner due to his serious
-                passion for programming and wanting to contribute something good
-                to any codebase.
+                {contentfulPortfolio.description}
               </p>
               <p className="text-orange-300 underline">
                 <a href="#contact">Let's make something special</a>

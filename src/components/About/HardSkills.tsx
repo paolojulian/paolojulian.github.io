@@ -1,9 +1,26 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React, { FunctionComponent } from "react"
+import { JobSkill } from "../../@types/enums"
 import ProgressBar from "../Tools/ProgressBar"
 
 export interface SkillsProps {}
 
 const Skills: FunctionComponent<SkillsProps> = props => {
+  const {
+    contentfulPortfolio,
+  }: { contentfulPortfolio: { hardSkills: JobSkill[] } } = useStaticQuery(
+    graphql`
+      query {
+        contentfulPortfolio {
+          hardSkills {
+            id
+            name
+            value
+          }
+        }
+      }
+    `
+  )
   return (
     <>
       <div
@@ -19,9 +36,9 @@ const Skills: FunctionComponent<SkillsProps> = props => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
             />
           </svg>
@@ -37,45 +54,15 @@ const Skills: FunctionComponent<SkillsProps> = props => {
         data-aos-delay="100"
         data-aos-anchor="#hardSkills"
       >
-        <ProgressBar
-          title="Front-End"
-          fillPercentage={85}
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-anchor="#hardSkills"
-        ></ProgressBar>
-
-        <ProgressBar
-          title="Back-End"
-          fillPercentage={75}
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-anchor="#hardSkills"
-        ></ProgressBar>
-
-        <ProgressBar
-          title="Mobile"
-          fillPercentage={55}
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-aos-anchor="#hardSkills"
-        ></ProgressBar>
-
-        <ProgressBar
-          title="Styling"
-          fillPercentage={45}
-          data-aos="fade-up"
-          data-aos-delay="400"
-          data-aos-anchor="#hardSkills"
-        ></ProgressBar>
-
-        <ProgressBar
-          title="UI/UX"
-          fillPercentage={30}
-          data-aos="fade-up"
-          data-aos-delay="500"
-          data-aos-anchor="#hardSkills"
-        ></ProgressBar>
+        {contentfulPortfolio.hardSkills.map((skill, i) => (
+          <ProgressBar
+            title={skill.name}
+            fillPercentage={skill.value}
+            data-aos="fade-up"
+            data-aos-delay={i * 100 + 100}
+            data-aos-anchor="#hardSkills"
+          ></ProgressBar>
+        ))}
       </div>
     </>
   )

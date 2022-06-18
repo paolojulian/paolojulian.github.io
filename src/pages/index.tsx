@@ -10,28 +10,34 @@ import TechStack from "../components/TechStack"
 import Portfolio from "../components/Portfolio"
 
 type DataProps = {
+  contentfulPortfolio: {
+    description: string
+  }
   site: {
     buildTime: string
   }
 }
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({
-  data,
-  location,
-}) => (
-  <Layout>
-    <Seo title="Paolo Vincent Julian" />
-    <About />
-    <TechStack />
-    <Portfolio />
-    <Contact />
-  </Layout>
-)
+const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data }) => {
+  const { description } = data.contentfulPortfolio;
+  return (
+    <Layout>
+      <Seo title="Paolo Vincent Julian" />
+      <About />
+      <TechStack />
+      <Portfolio />
+      <Contact />
+    </Layout>
+  )
+}
 
 export default UsingTypescript
 
 export const query = graphql`
   {
+    contentfulPortfolio {
+      description
+    }
     site {
       buildTime(formatString: "YYYY-MM-DD hh:mm a z")
     }
