@@ -107,10 +107,10 @@ const index: FunctionComponent<indexProps> = props => {
           >
             <motion.div
               variants={enterFromBottomVariant()}
-              className="text-gray-500 bg-gray-50 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full"
+              className="text-gray-500 bg-orange-400 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full"
               data-aos="fade-up"
             >
-              <DraftingIcon width={30} fill="#0f172a" />
+              <DraftingIcon width={30} fill="#ffffff" />
             </motion.div>
             <motion.h3
               variants={enterFromBottomVariant()}
@@ -178,7 +178,7 @@ const index: FunctionComponent<indexProps> = props => {
             </motion.ul>
             <motion.div variants={enterFromBottomVariant()}>
               <a
-                className="font-bold bg-pink-400 py-2 px-4 rounded-3xl text-white hover:opacity-75 ease-linear transition-opacity duration-150 animate-pulse hover:animate-none"
+                className="font-bold bg-pink-400 py-2 px-5 rounded-3xl text-white hover:opacity-75 ease-linear transition-opacity duration-150 animate-pulse hover:animate-none"
                 href="https://stackshare.io/paolovincentarch/my-stack"
                 target="__blank"
                 data-aos="fade-up"
