@@ -1,5 +1,7 @@
-export type JobSkill = {
+export type ContentfulRepeater = {
   id: string;
-  name: string;
-  value: number;
+  key: string;
+  value: string;
 }
+
+export type JobSkill = { value: number } & ContentfulRepeater

@@ -16,7 +16,7 @@ const Skills: FunctionComponent<SkillsProps> = props => {
         contentfulPortfolio {
           hardSkills {
             id
-            name
+            key
             value
           }
         }
@@ -55,7 +55,7 @@ const Skills: FunctionComponent<SkillsProps> = props => {
         {contentfulPortfolio.hardSkills.map((skill, i) => (
           <motion.div key={skill.id} variants={fadeInVariant()}>
             <ProgressBar
-              title={skill.name}
+              title={skill.key}
               fillPercentage={skill.value}
             ></ProgressBar>
           </motion.div>

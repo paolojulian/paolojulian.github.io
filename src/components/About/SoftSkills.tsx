@@ -17,7 +17,7 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
         contentfulPortfolio {
           softSkills {
             id
-            name
+            key
             value
           }
         }
@@ -61,7 +61,7 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
         {contentfulPortfolio.softSkills.map((skill, i) => (
           <motion.div key={skill.id} variants={fadeInVariant()}>
             <ProgressBar
-              title={skill.name}
+              title={skill.key}
               fillPercentage={skill.value}
               data-aos-anchor="#softSkills"
             ></ProgressBar>

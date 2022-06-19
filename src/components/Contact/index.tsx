@@ -6,12 +6,10 @@ import FacebookIcon from "../../images/svg/facebook-f-brands.inline.svg"
 import InstagramIcon from "../../images/svg/instagram-brands.inline.svg"
 import LinkedInIcon from "../../images/svg/linkedin-in-brands.inline.svg"
 import SteamIcon from "../../images/svg/steam-brands.inline.svg"
-import {
-  bounceInVariant,
-  enterFromBottomVariant,
-  enterFromLeftVariant,
-} from "../../@animations"
+import { bounceInVariant, enterFromLeftVariant } from "../../@animations"
 import SpringyButton from "../Tools/SpringyButton"
+import { graphql, useStaticQuery } from "gatsby"
+import { ContentfulRepeater } from "../../@types/enums"
 
 export interface indexProps {}
 
@@ -19,6 +17,33 @@ const index: FunctionComponent<indexProps> = props => {
   const handleSubmitContact = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
   }
+
+  const {
+    contentfulPortfolio,
+  }: { contentfulPortfolio: { socialMediaAccounts: ContentfulRepeater[] } } =
+    useStaticQuery(
+      graphql`
+        query {
+          contentfulPortfolio {
+            socialMediaAccounts {
+              id
+              key
+              value
+            }
+          }
+        }
+      `
+    )
+
+  const getSocialMediaLink = React.useCallback(
+    (socialMediaKey: string) => {
+      return contentfulPortfolio.socialMediaAccounts.find(
+        ({ key }) => key === socialMediaKey
+      )?.value
+    },
+    [contentfulPortfolio]
+  )
+
   return (
     <footer className="text-center bg-slate-200 min-h-screen flex flex-col justify-between relative">
       <div className="h-20 bg-slate-200 bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20">
@@ -107,17 +132,17 @@ const index: FunctionComponent<indexProps> = props => {
       </section>
       <div className="bg-black text-gray-400 py-14">
         <div className="flex w-full items-center justify-center pb-10">
-          <SocialIcon>
+          <SocialIcon href={getSocialMediaLink("facebook")}>
             <FacebookIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon>
+          <SocialIcon href={getSocialMediaLink('instagram')}>
             <InstagramIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon>
+          <SocialIcon href={getSocialMediaLink('linkedin')}>
             <LinkedInIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon>Gi</SocialIcon>
-          <SocialIcon>
+          <SocialIcon href={getSocialMediaLink('github')}>Gi</SocialIcon>
+          <SocialIcon href={getSocialMediaLink('steam')}>
             <SteamIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
         </div>
