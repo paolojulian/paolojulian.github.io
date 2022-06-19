@@ -67,3 +67,17 @@ export const enterFromBottomVariant = (transition?: Transition): Variants => {
     },
   }
 }
+
+export const bounceInVariant = (transition?: Transition): Variants => {
+  return {
+    invisible: {
+      scale: 0.9,
+      opacity: 0,
+    },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { ...transition, type: 'spring', bounce: 0.7, duration: 1 },
+    },
+  }
+}

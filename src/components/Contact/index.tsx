@@ -1,14 +1,24 @@
 import React, { FunctionComponent } from "react"
+import { motion } from "framer-motion"
 
 import SocialIcon from "./SocialIcon"
 import FacebookIcon from "../../images/svg/facebook-f-brands.inline.svg"
 import InstagramIcon from "../../images/svg/instagram-brands.inline.svg"
 import LinkedInIcon from "../../images/svg/linkedin-in-brands.inline.svg"
 import SteamIcon from "../../images/svg/steam-brands.inline.svg"
+import {
+  bounceInVariant,
+  enterFromBottomVariant,
+  enterFromLeftVariant,
+} from "../../@animations"
+import SpringyButton from "../Tools/SpringyButton"
 
 export interface indexProps {}
 
 const index: FunctionComponent<indexProps> = props => {
+  const handleSubmitContact = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }
   return (
     <footer className="text-center bg-slate-200 min-h-screen flex flex-col justify-between relative">
       <div className="h-20 bg-slate-200 bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20">
@@ -29,11 +39,37 @@ const index: FunctionComponent<indexProps> = props => {
         id="contact"
         className="text-black text-center my-auto py-10 md:py-0"
       >
-        <h1 className="section-title mb-4">CONTACT</h1>
-        <div className="text-sky-900 mb-8">
+        <motion.div
+          initial="invisible"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={enterFromLeftVariant({ staggerChildren: 0.4 })}
+        >
+          <motion.h1
+            variants={enterFromLeftVariant()}
+            className="section-title"
+          >
+            CONTACT
+          </motion.h1>
+          <motion.div className="pt-4 mx-auto w-24 mb-8 border-b-4 border-black"></motion.div>
+        </motion.div>
+        <motion.div
+          initial="invisible"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={bounceInVariant()}
+          className="text-sky-900 mb-8"
+        >
           Have a question or want to work together?
-        </div>
-        <form className="w-96 max-w-8xl mx-auto mb-10" onSubmit={() => {}}>
+        </motion.div>
+        <motion.form
+          initial="invisible"
+          whileInView="visible"
+          variants={bounceInVariant({ delay: 0.75 })}
+          viewport={{ once: true }}
+          className="w-96 max-w-8xl mx-auto mb-10"
+          onSubmit={handleSubmitContact}
+        >
           <div className="form-group">
             <input
               autoComplete="on"
@@ -61,14 +97,13 @@ const index: FunctionComponent<indexProps> = props => {
               rows={8}
             ></textarea>
           </div>
-          <button
-            is="app-button"
+          <SpringyButton
+            className="w-full uppercase font-semibold"
             type="submit"
-            className="app-button bg-teal-600 hover:bg-teal-700 inline-block py-2 text-gray-200 transition duration-200 w-full"
           >
             Submit
-          </button>
-        </form>
+          </SpringyButton>
+        </motion.form>
       </section>
       <div className="bg-black text-gray-400 py-14">
         <div className="flex w-full items-center justify-center pb-10">
