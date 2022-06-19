@@ -24,8 +24,11 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
 
   const controls = useAnimation()
   const aboutControls = useAnimation()
-  const [aboutRef, inViewAbout] = useInView({ threshold: 1 })
-  const [ref, inView] = useInView({ threshold: 1 })
+  const [aboutRef, inViewAbout] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  })
+  const [ref, inView] = useInView({ threshold: 1, triggerOnce: true })
 
   useEffect(() => {
     if (inView) {
@@ -41,23 +44,21 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
   return (
     <section title="About Me" id="about" className="py-32 bg-slate-800">
       <div className="container max-w-screen-lg mx-auto">
-        <div className="section-title mb-24">
-          <motion.div
-            initial="invisible"
-            whileInView="visible"
-            variants={enterFromLeftVariant({ delay: 0.8 })}
-            viewport={{ once: true }}
-          >
-            About
-          </motion.div>
-          <motion.div
-            variants={enterFromLeftVariant({ delay: 1 })}
-            initial="invisible"
-            whileInView="visible"
-            viewport={{ once: true }}
+        <motion.ul
+          initial="invisible"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={enterFromLeftVariant({ staggerChildren: 0.5 })}
+          className="section-title mb-24"
+        >
+          <motion.li variants={enterFromLeftVariant()}>About</motion.li>
+          <motion.li
+            variants={enterFromLeftVariant()}
             className="pt-4 mx-auto w-24 border-b-4 border-sky-100"
-          ></motion.div>
-        </div>
+          ></motion.li>
+        </motion.ul>
+
+        <div ref={aboutRef}></div>
 
         <Ideals />
 
