@@ -1,8 +1,15 @@
 import { StaticImage } from "gatsby-plugin-image"
+import { motion } from "framer-motion"
 import React, { FunctionComponent } from "react"
 import PortfolioCard from "./PortfolioCard"
+import {
+  enterFromBottomVariant,
+  enterFromRightVariant,
+} from "../../@animations"
 
 export interface indexProps {}
+
+const PortfolioCardMotion = motion(PortfolioCard, { forwardMotionProps: true })
 
 const index: FunctionComponent<indexProps> = props => {
   return (
@@ -10,19 +17,41 @@ const index: FunctionComponent<indexProps> = props => {
       id="portfolio"
       className="justify-center text-center flex flex-wrap pt-32 pb-64 bg-slate-900"
     >
-      <div className="w-full md:w-6/12 px-12 md:px-4">
-        <h2 className="section-title mb-12">
-          Portfolio
-          <div className="pt-4 mx-auto w-32 border-b-4 border-sky-100"></div>
-        </h2>
-        <p className="text-lg leading-relaxed mt-4 mb-4 text-sky-100">
+      <motion.div className="w-full md:w-6/12 px-12 md:px-4">
+        <motion.h2
+          initial="invisible"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={enterFromRightVariant({ staggerChildren: 0.5 })}
+          className="section-title mb-12"
+        >
+          <motion.div variants={enterFromRightVariant()}>Portfolio</motion.div>
+          <motion.div
+            variants={enterFromRightVariant()}
+            className="pt-4 mx-auto w-32 border-b-4 border-sky-100"
+          ></motion.div>
+        </motion.h2>
+        <motion.p
+          initial="invisible"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={enterFromBottomVariant()}
+          className="text-lg leading-relaxed mt-4 mb-4 text-sky-100"
+        >
           These are some of the personal and professional projects i have done
           or collabed with in the past.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
-      <div className="flex flex-wrap max-w-screen-xl mx-auto justify-center">
-        <PortfolioCard
+      <motion.div
+        initial="invisible"
+        whileInView="visible"
+        variants={enterFromBottomVariant({ staggerChildren: 0.2 })}
+        viewport={{ once: true }}
+        className="flex flex-wrap max-w-screen-xl mx-auto justify-center"
+      >
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="barter"
@@ -31,7 +60,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="asta"
@@ -40,7 +70,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="ArtFX"
@@ -49,7 +80,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="lacosina"
@@ -58,7 +90,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="hirano"
@@ -67,7 +100,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="passteam"
@@ -76,7 +110,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="sonomanmaso"
@@ -85,7 +120,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="yeomans"
@@ -94,7 +130,8 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-        <PortfolioCard
+        <PortfolioCardMotion
+          variants={enterFromBottomVariant()}
           Image={
             <StaticImage
               alt="rainbow-blurred"
@@ -103,7 +140,7 @@ const index: FunctionComponent<indexProps> = props => {
             />
           }
         />
-      </div>
+      </motion.div>
     </section>
   )
 }
