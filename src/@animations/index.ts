@@ -16,7 +16,7 @@ export const rotateFromRightVariant = (transition?: Transition): Variants => {
   return {
     invisible: {
       opacity: 0,
-      rotateY: 60 
+      rotateY: 60
     },
     visible: {
       opacity: 1,
@@ -50,6 +50,20 @@ export const enterFromRightVariant = (transition?: Transition): Variants => {
       opacity: 1,
       translateX: 0,
       transition: { ...transition, type: "spring", bounce: 0.2, duration: 1.5 },
+    },
+  }
+}
+
+export const enterFromBottomVariant = (transition?: Transition): Variants => {
+  return {
+    invisible: {
+      translateY: 300,
+      opacity: 0,
+    },
+    visible: {
+      translateY: 0,
+      opacity: 1,
+      transition: { ...transition, type: 'spring', bounce: 0, duration: 1.5 },
     },
   }
 }

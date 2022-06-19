@@ -19,7 +19,7 @@ const SpringyButton: FunctionComponent<SpringyButtonProps> = ({
         transition: { duration: 0.1 },
       }}
       whileTap={{ scale: 1 }}
-      className="py-2 px-4 rounded-lg bg-pink-400"
+      className="py-2 px-4 rounded-3xl bg-pink-400"
       {...props}
     >
       {children}
