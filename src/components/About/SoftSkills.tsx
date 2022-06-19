@@ -1,8 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React, { FunctionComponent } from "react"
+import { motion } from "framer-motion"
 
 import ProgressBar from "../Tools/ProgressBar"
 import { JobSkill } from "../../@types/enums"
+import { fadeInVariant } from "../../@animations"
 
 export interface SoftSkillsProps {}
 
@@ -52,16 +54,20 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
         </h3>
       </div>
 
-      <div className="flex flex-col items-stretch text-gray-50 text-sm">
+      <motion.div
+        variants={fadeInVariant({ staggerChildren: 0.1 })}
+        className="flex flex-col items-stretch text-gray-50 text-sm"
+      >
         {contentfulPortfolio.softSkills.map((skill, i) => (
-          <ProgressBar
-            key={skill.id}
-            title={skill.name}
-            fillPercentage={skill.value}
-            data-aos-anchor="#softSkills"
-          ></ProgressBar>
+          <motion.div key={skill.id} variants={fadeInVariant()}>
+            <ProgressBar
+              title={skill.name}
+              fillPercentage={skill.value}
+              data-aos-anchor="#softSkills"
+            ></ProgressBar>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </>
   )
 }

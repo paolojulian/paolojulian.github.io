@@ -3,6 +3,7 @@ import { AnimationProps, motion } from "framer-motion"
 import React, { FunctionComponent } from "react"
 import { JobSkill } from "../../@types/enums"
 import ProgressBar from "../Tools/ProgressBar"
+import { fadeInVariant } from "../../@animations"
 
 export interface SkillsProps {}
 
@@ -47,12 +48,12 @@ const Skills: FunctionComponent<SkillsProps> = props => {
         </h3>
       </div>
 
-      <motion.div className="flex flex-col items-stretch text-gray-50 text-sm mb-4">
+      <motion.div
+        variants={fadeInVariant({ staggerChildren: 0.1 })}
+        className="flex flex-col items-stretch text-gray-50 text-sm mb-4"
+      >
         {contentfulPortfolio.hardSkills.map((skill, i) => (
-          <motion.div
-            key={skill.id}
-            variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
-          >
+          <motion.div key={skill.id} variants={fadeInVariant()}>
             <ProgressBar
               title={skill.name}
               fillPercentage={skill.value}

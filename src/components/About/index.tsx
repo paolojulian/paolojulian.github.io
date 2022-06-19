@@ -27,6 +27,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
   const [aboutRef, inViewAbout] = useInView({
     threshold: 0.5,
     triggerOnce: true,
+    delay: 0.5,
   })
   const [ref, inView] = useInView({ threshold: 1, triggerOnce: true })
 
@@ -45,9 +46,8 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
     <section title="About Me" id="about" className="py-32 bg-slate-800">
       <div className="container max-w-screen-lg mx-auto">
         <motion.ul
+          animate={aboutControls}
           initial="invisible"
-          whileInView="visible"
-          viewport={{ once: true }}
           variants={enterFromLeftVariant({ staggerChildren: 0.5 })}
           className="section-title mb-24"
         >
