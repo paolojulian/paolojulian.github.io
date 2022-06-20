@@ -54,16 +54,30 @@ export const enterFromRightVariant = (transition?: Transition): Variants => {
   }
 }
 
-export const enterFromBottomVariant = (transition?: Transition): Variants => {
+export const enterFromBottomVariant = (transition?: Transition | any): Variants => {
   return {
     invisible: {
-      translateY: 300,
+      y: 300,
       opacity: 0,
     },
     visible: {
-      translateY: 0,
+      y: 0,
       opacity: 1,
-      transition: { ...transition, type: 'spring', bounce: 0, duration: 1.5 },
+      transition: { duration: 1.5, type: 'spring', bounce: 0.1, ...transition },
+    },
+  }
+}
+
+export const enterFromTopVariant = (transition?: Transition | any): Variants => {
+  return {
+    invisible: {
+      y: -300,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 1.5, type: 'spring', bounce: 0.1, ...transition },
     },
   }
 }

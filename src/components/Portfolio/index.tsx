@@ -52,6 +52,8 @@ const index: FunctionComponent<indexProps> = props => {
       >
         <PortfolioCardMotion
           variants={enterFromBottomVariant()}
+          name="Barter App"
+          stack="React Native & ExpressJS"
           Image={
             <StaticImage
               alt="barter"
@@ -62,6 +64,8 @@ const index: FunctionComponent<indexProps> = props => {
         />
         <PortfolioCardMotion
           variants={enterFromBottomVariant()}
+          name="Asta"
+          stack="Laravel 7 & VanillaJS"
           Image={
             <StaticImage
               alt="asta"
@@ -71,6 +75,8 @@ const index: FunctionComponent<indexProps> = props => {
           }
         />
         <PortfolioCardMotion
+          name="Interactive Comments Section"
+          stack="NextJS"
           variants={enterFromBottomVariant()}
           Image={
             <StaticImage
@@ -81,6 +87,8 @@ const index: FunctionComponent<indexProps> = props => {
           }
         />
         <PortfolioCardMotion
+          name="Lacosina"
+          stack="ReactJS & ExpressJS"
           variants={enterFromBottomVariant()}
           Image={
             <StaticImage
@@ -91,6 +99,8 @@ const index: FunctionComponent<indexProps> = props => {
           }
         />
         <PortfolioCardMotion
+          name="Hirano Web Order"
+          stack="CakePHP 3 & VueJS"
           variants={enterFromBottomVariant()}
           Image={
             <StaticImage
@@ -101,6 +111,8 @@ const index: FunctionComponent<indexProps> = props => {
           }
         />
         <PortfolioCardMotion
+          name="Pass Team"
+          stack="Laravel 7 & VueJS"
           variants={enterFromBottomVariant()}
           Image={
             <StaticImage
@@ -111,6 +123,8 @@ const index: FunctionComponent<indexProps> = props => {
           }
         />
         <PortfolioCardMotion
+          name="Sonomanmas-o"
+          stack="Laravel 7 & VueJS"
           variants={enterFromBottomVariant()}
           Image={
             <StaticImage
@@ -121,6 +135,8 @@ const index: FunctionComponent<indexProps> = props => {
           }
         />
         <PortfolioCardMotion
+          name="Yeomans Soil App"
+          stack="React Native & ExpressJS"
           variants={enterFromBottomVariant()}
           Image={
             <StaticImage
@@ -131,6 +147,8 @@ const index: FunctionComponent<indexProps> = props => {
           }
         />
         <PortfolioCardMotion
+          name="Rainbow CH"
+          stack="CakePHP 2 & VanillaJS"
           variants={enterFromBottomVariant()}
           Image={
             <StaticImage
