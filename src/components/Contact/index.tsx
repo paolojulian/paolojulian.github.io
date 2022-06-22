@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import SocialIcon from "./SocialIcon"
 import FacebookIcon from "../../images/svg/facebook-f-brands.inline.svg"
 import InstagramIcon from "../../images/svg/instagram-brands.inline.svg"
+import GithubIcon from "../../images/svg/github.inline.svg"
 import LinkedInIcon from "../../images/svg/linkedin-in-brands.inline.svg"
 import SteamIcon from "../../images/svg/steam-brands.inline.svg"
 import { bounceInVariant, enterFromLeftVariant } from "../../@animations"
@@ -141,7 +142,9 @@ const index: FunctionComponent<indexProps> = props => {
           <SocialIcon href={getSocialMediaLink('linkedin')}>
             <LinkedInIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon href={getSocialMediaLink('github')}>Gi</SocialIcon>
+          <SocialIcon href={getSocialMediaLink('github')}>
+            <GithubIcon width={20} height={25} fill="#e2e8f0" />
+          </SocialIcon>
           <SocialIcon href={getSocialMediaLink('steam')}>
             <SteamIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
