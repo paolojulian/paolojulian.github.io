@@ -1,4 +1,4 @@
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import React, { FunctionComponent } from "react"
 import PortfolioCardMotion from "./PortfolioCard"
@@ -7,10 +7,47 @@ import {
   enterFromRightVariant,
 } from "../../@animations"
 import PortfolioModal from "./PortfolioModal"
+import { graphql, useStaticQuery } from "gatsby"
+import { PortfolioItem } from "../../@types/enums"
 
 export interface indexProps {}
 
+type allContentfulPortfolioItem = {
+  allContentfulPortfolioItem: {
+    edges: [
+      {
+        node: PortfolioItem
+      }
+    ]
+  }
+}
+
 const index: FunctionComponent<indexProps> = props => {
+  const { allContentfulPortfolioItem } =
+    useStaticQuery<allContentfulPortfolioItem>(
+      graphql`
+        query {
+          allContentfulPortfolioItem(sort: {fields: [updatedAt], order: ASC}) {
+            edges {
+              node {
+                id
+                title
+                description {
+                  description
+                }
+                stack
+                thumbnail {
+                  gatsbyImage(layout: CONSTRAINED, width: 400, height: 300)
+                  id
+                  url
+                }
+              }
+            }
+          }
+        }
+      `
+    )
+
   const [isLearnMoreModalOpen, setLearnMoreModalOpen] = React.useState(false)
   const onLearnMore = () => {
     setLearnMoreModalOpen(true)
@@ -57,123 +94,21 @@ const index: FunctionComponent<indexProps> = props => {
           viewport={{ once: true }}
           className="flex flex-wrap max-w-screen-xl mx-auto justify-center"
         >
-          <PortfolioCardMotion
-            variants={enterFromBottomVariant()}
-            name="Barter App"
-            stack="React Native & ExpressJS"
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="barter"
-                src="../../images/portfolio/barter.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            variants={enterFromBottomVariant()}
-            name="Asta"
-            stack="Laravel 7 & VanillaJS"
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="asta"
-                src="../../images/portfolio/asta.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            name="Interactive Comments Section"
-            stack="NextJS"
-            variants={enterFromBottomVariant()}
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="ArtFX"
-                src="../../images/portfolio/interactive-comments-section.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            name="Lacosina"
-            stack="ReactJS & ExpressJS"
-            variants={enterFromBottomVariant()}
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="lacosina"
-                src="../../images/portfolio/lacosina.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            name="Hirano Web Order"
-            stack="CakePHP 3 & VueJS"
-            variants={enterFromBottomVariant()}
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="hirano"
-                src="../../images/portfolio/hirano_order.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            name="Pass Team"
-            stack="Laravel 7 & VueJS"
-            variants={enterFromBottomVariant()}
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="passteam"
-                src="../../images/portfolio/passteam.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            name="Sonomanmas-o"
-            stack="Laravel 7 & VueJS"
-            variants={enterFromBottomVariant()}
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="sonomanmaso"
-                src="../../images/portfolio/sonomanmaso.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            name="Yeomans Soil App"
-            stack="React Native & ExpressJS"
-            variants={enterFromBottomVariant()}
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="yeomans"
-                src="../../images/portfolio/yeomans.png"
-                quality={90}
-              />
-            }
-          />
-          <PortfolioCardMotion
-            name="Rainbow CH"
-            stack="CakePHP 2 & VanillaJS"
-            variants={enterFromBottomVariant()}
-            onLearnMore={onLearnMore}
-            Image={
-              <StaticImage
-                alt="rainbow-blurred"
-                src="../../images/portfolio/rainbow-blurred.png"
-                quality={90}
-              />
-            }
-          />
+          {allContentfulPortfolioItem.edges.map(({ node }) => (
+            <PortfolioCardMotion
+              key={node.id}
+              variants={enterFromBottomVariant()}
+              name={node.title}
+              stack={node.stack}
+              onLearnMore={onLearnMore}
+              Image={
+                <GatsbyImage
+                  alt={node.title}
+                  image={node.thumbnail.gatsbyImage}
+                ></GatsbyImage>
+              }
+            />
+          ))}
         </motion.div>
       </section>
       <PortfolioModal
