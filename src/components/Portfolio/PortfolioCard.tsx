@@ -1,25 +1,21 @@
-import React, { useEffect } from "react"
-import { motion, useAnimation } from "framer-motion"
-import {
-  enterFromBottomVariant,
-  enterFromTopVariant,
-  fadeInVariant,
-} from "../../@animations"
+import React from "react"
+import { motion } from "framer-motion"
 
 export interface PortfolioCardProps extends React.HTMLProps<HTMLDivElement> {
   name?: string
   stack?: string
   details?: Object
+  onLearnMore?: () => any
   Image: React.ReactNode
 }
 
 const PortfolioCard = React.forwardRef<HTMLDivElement, PortfolioCardProps>(
-  ({ Image, name, stack, details, ...props }, ref) => {
+  (props, ref) => {
+    const { Image, name, stack, details, onLearnMore } = props
     return (
       <div
         className="relative overflow-hidden h-72 w-96 m-2 bg-sky-50"
         ref={ref}
-        {...props}
       >
         <div className="absolute inset-0">{Image}</div>
         {/* Hover */}
@@ -29,7 +25,10 @@ const PortfolioCard = React.forwardRef<HTMLDivElement, PortfolioCardProps>(
             <div className="text-pink-500">{stack}</div>
           </div>
           <div className="translate-y-36 group-hover:translate-y-0 transition-transform duration-500">
-            <div className="cursor-pointer border-2 border-pink-400 py-2 px-6 hover:bg-pink-400 hover:text-white transition-colors font-medium uppercase">
+            <div
+              className="cursor-pointer border-2 border-pink-400 py-2 px-6 hover:bg-pink-400 hover:text-white transition-colors font-medium uppercase"
+              onClick={onLearnMore}
+            >
               Learn More
             </div>
           </div>
@@ -39,4 +38,5 @@ const PortfolioCard = React.forwardRef<HTMLDivElement, PortfolioCardProps>(
   }
 )
 
-export default PortfolioCard
+const PortfolioCardMotion = motion(PortfolioCard, { forwardMotionProps: true })
+export default PortfolioCardMotion

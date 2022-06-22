@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Paolo Vincent Julian <paolovincentarch@gmail.com>",
   "dependencies": {
+    "@headlessui/react": "^1.6.4",
     "autoprefixer": "^10.4.7",
     "compass-mixins": "^0.12.11",
     "framer-motion": "^6.3.11",
