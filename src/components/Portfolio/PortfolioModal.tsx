@@ -41,6 +41,12 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
     }
   }, [activeImageIndex])
 
+  useEffect(() => {
+    if (!isOpen) {
+      setActiveImageIndex(0);
+    }
+  }, [isOpen])
+
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
