@@ -91,7 +91,7 @@ const index: FunctionComponent<indexProps> = props => {
             Image={
               <StaticImage
                 alt="ArtFX"
-                src="../../images/portfolio/artfx.png"
+                src="../../images/portfolio/interactive-comments-section.png"
                 quality={90}
               />
             }

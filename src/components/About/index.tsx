@@ -34,6 +34,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
   useEffect(() => {
     if (inView) {
       controls.start("visible")
+      console.log("test")
     }
   }, [controls, inView])
   useEffect(() => {
@@ -62,7 +63,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
 
         <Ideals />
 
-        <div className="flex flex-col md:flex-row items-start justify-center mx-auto mb-36">
+        <div className="flex flex-col md:flex-row items-start justify-center mx-auto">
           {/* Who is this guy */}
           <motion.div
             animate={controls}
@@ -78,13 +79,11 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
                 WHO IS THIS GUY?
               </p>
               <p className="ml-6 mb-4">{contentfulPortfolio.description}</p>
-              <div ref={ref}>
-                <SpringyButton
-                  onClick={() => (window.location.href = "#contact")}
-                >
-                  Let's make something special
-                </SpringyButton>
-              </div>
+              <SpringyButton
+                onClick={() => (window.location.href = "#contact")}
+              >
+                Let's make something special
+              </SpringyButton>
             </div>
           </motion.div>
 
@@ -99,6 +98,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
             <SoftSkills />
           </motion.div>
         </div>
+        <div className="mb-36" ref={ref}></div>
       </div>
     </section>
   )
