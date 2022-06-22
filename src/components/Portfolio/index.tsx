@@ -27,7 +27,9 @@ const index: FunctionComponent<indexProps> = props => {
     useStaticQuery<allContentfulPortfolioItem>(
       graphql`
         query {
-          allContentfulPortfolioItem(sort: {fields: [updatedAt], order: ASC}) {
+          allContentfulPortfolioItem(
+            sort: { fields: [updatedAt], order: ASC }
+          ) {
             edges {
               node {
                 id
@@ -49,7 +51,9 @@ const index: FunctionComponent<indexProps> = props => {
     )
 
   const [isLearnMoreModalOpen, setLearnMoreModalOpen] = React.useState(false)
-  const onLearnMore = () => {
+  const [selectedPortfolioItem, setSelectedPortfolioItem] = React.useState<PortfolioItem>()
+  const onLearnMore = (portfolioItem: PortfolioItem) => {
+    setSelectedPortfolioItem(portfolioItem)
     setLearnMoreModalOpen(true)
   }
 
@@ -100,7 +104,7 @@ const index: FunctionComponent<indexProps> = props => {
               variants={enterFromBottomVariant()}
               name={node.title}
               stack={node.stack}
-              onLearnMore={onLearnMore}
+              onLearnMore={() => onLearnMore(node)}
               Image={
                 <GatsbyImage
                   alt={node.title}
@@ -114,6 +118,7 @@ const index: FunctionComponent<indexProps> = props => {
       <PortfolioModal
         isOpen={isLearnMoreModalOpen}
         onClose={() => setLearnMoreModalOpen(false)}
+        item={selectedPortfolioItem}
       />
     </>
   )

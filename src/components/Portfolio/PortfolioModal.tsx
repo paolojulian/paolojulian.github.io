@@ -1,14 +1,20 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment, useEffect, useRef, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
+import { PortfolioItem } from "../../@types/enums"
 
 interface PortfolioModalProps {
   onClose: () => any
   isOpen: boolean
+  item?: PortfolioItem
 }
 
-const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+const PortfolioModal: React.FC<PortfolioModalProps> = ({
+  isOpen,
+  onClose,
+  item,
+}) => {
+  const carouselRef = useRef<HTMLDivElement>(null)
   const cancelButtonRef = useRef<HTMLButtonElement>(null)
   const images = React.useState([
     { name: "First Slide" },
@@ -37,15 +43,20 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (carouselRef !== null && carouselRef.current !== null) {
-      carouselRef.current.scrollLeft = carouselRef.current.offsetWidth * activeImageIndex
+      carouselRef.current.scrollLeft =
+        carouselRef.current.offsetWidth * activeImageIndex
     }
   }, [activeImageIndex])
 
   useEffect(() => {
     if (!isOpen) {
-      setActiveImageIndex(0);
+      setActiveImageIndex(0)
     }
   }, [isOpen])
+
+  if (!item) {
+    return null
+  }
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
@@ -84,7 +95,10 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
                   className="relative bg-gray-300"
                   data-carousel="static"
                 >
-                  <div ref={carouselRef} className="snap-x snap-mandatory scroll-smooth overflow-hidden relative h-56 sm:h-64 xl:h-80 2xl:h-96 flex touch-pan-x text-lg font-bold">
+                  <div
+                    ref={carouselRef}
+                    className="snap-x snap-mandatory scroll-smooth overflow-hidden relative h-56 sm:h-64 xl:h-80 2xl:h-96 flex touch-pan-x text-lg font-bold"
+                  >
                     <span className="flex-none w-full h-full snap-start bg-pink-200 flex items-center justify-center">
                       First Child
                     </span>
@@ -99,21 +113,30 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
                   <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
                     <button
                       type="button"
-                      className={"w-3 h-3 rounded-full dark:bg-gray-800 " + (activeImageIndex === 0 ? 'bg-white': 'bg-white/50')}
+                      className={
+                        "w-3 h-3 rounded-full dark:bg-gray-800 " +
+                        (activeImageIndex === 0 ? "bg-white" : "bg-white/50")
+                      }
                       aria-current="true"
                       aria-label="Slide 1"
                       onClick={() => setActiveImageIndex(0)}
                     ></button>
                     <button
                       type="button"
-                      className={"w-3 h-3 rounded-full dark:bg-gray-800 " + (activeImageIndex === 1 ? 'bg-white': 'bg-white/50')}
+                      className={
+                        "w-3 h-3 rounded-full dark:bg-gray-800 " +
+                        (activeImageIndex === 1 ? "bg-white" : "bg-white/50")
+                      }
                       aria-current="false"
                       aria-label="Slide 2"
                       onClick={() => setActiveImageIndex(1)}
                     ></button>
                     <button
                       type="button"
-                      className={"w-3 h-3 rounded-full dark:bg-gray-800 " + (activeImageIndex === 2 ? 'bg-white': 'bg-white/50')}
+                      className={
+                        "w-3 h-3 rounded-full dark:bg-gray-800 " +
+                        (activeImageIndex === 2 ? "bg-white" : "bg-white/50")
+                      }
                       aria-current="false"
                       aria-label="Slide 3"
                       onClick={() => setActiveImageIndex(2)}
@@ -177,15 +200,13 @@ const PortfolioModal: React.FC<PortfolioModalProps> = ({ isOpen, onClose }) => {
                         className="text-lg leading-6 font-medium text-black"
                       >
                         <div className="font-semibold text-2xl">
-                          Bartering App
+                          {item.title}
                         </div>
-                        <div className="text-gray-500">NextJS</div>
+                        <div className="text-gray-500">{item.stack}</div>
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-black">
-                          This app is a commission-free online ordering system
-                          and food ordering app helping restaurants feed their
-                          hungry customers.
+                          {item.description.description}
                         </p>
                       </div>
                     </div>
