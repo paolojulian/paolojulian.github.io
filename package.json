@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
     "gatsby-plugin-postcss": "^5.15.0",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2"
   },
@@ -44,6 +45,7 @@
   ],
   "license": "0BSD",
   "scripts": {
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "build": "gatsby build",
     "develop": "gatsby develop --host=0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
