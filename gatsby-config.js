@@ -3,6 +3,7 @@ require("dotenv").config({
 })
 
 module.exports = {
+  pathPrefix: "/paolojulian.github.io",
   siteMetadata: {
     title: `Paolo Vincent Julian Portfolio`,
     description: `Portfolio`,

@@ -1,9 +1,7 @@
 const colors = require("tailwindcss/colors")
 
 module.exports = {
-  content: [],
-  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: false,
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
       body: ["Nunito"],
