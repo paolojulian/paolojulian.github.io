@@ -1,7 +1,7 @@
 import * as React from "react"
 import Landing from "./Landing"
 
-import "./Layout.css"
+import "./Layout.scss"
 import Navbar from "./Navbar"
 
 type LayoutProps = {

@@ -51,7 +51,7 @@ body {
   }
 }
 
-$parallax__layers: 12;
+$parallax__layers: 9;
 
 @for $i from 0 through $parallax__layers {
   $x: calc(($parallax__layers - $i) / 2);
