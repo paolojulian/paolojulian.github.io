@@ -1,14 +1,14 @@
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
+import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React, { FunctionComponent } from "react"
-import PortfolioCardMotion from "./PortfolioCard"
 import {
   enterFromBottomVariant,
-  enterFromRightVariant,
+  enterFromRightVariant
 } from "../../@animations"
-import PortfolioModal from "./PortfolioModal"
-import { graphql, useStaticQuery } from "gatsby"
 import { PortfolioItem } from "../../@types/enums"
+import PortfolioCardMotion from "./PortfolioCard"
+import PortfolioModal from "./PortfolioModal"
 
 export interface indexProps {}
 
@@ -39,7 +39,7 @@ const index: FunctionComponent<indexProps> = props => {
                 }
                 stack
                 thumbnail {
-                  gatsbyImage(layout: CONSTRAINED, width: 400, height: 300)
+                  gatsbyImageData(layout: CONSTRAINED, width: 800, height: 600, quality: 90)
                   id
                   url
                 }
@@ -108,7 +108,7 @@ const index: FunctionComponent<indexProps> = props => {
               Image={
                 <GatsbyImage
                   alt={node.title}
-                  image={node.thumbnail.gatsbyImage}
+                  image={node.thumbnail.gatsbyImageData}
                 ></GatsbyImage>
               }
             />

@@ -1,22 +1,37 @@
-import React, { FunctionComponent } from "react"
 import { motion } from "framer-motion"
+import React, { FunctionComponent, useState } from "react"
 
-import SocialIcon from "./SocialIcon"
+import { graphql, useStaticQuery } from "gatsby"
+import { bounceInVariant, enterFromLeftVariant } from "../../@animations"
+import { postContactMe, postContactMeData } from "../../@api/emailService"
+import { ContentfulRepeater } from "../../@types/enums"
+import useApi from "../../hooks/useApi"
 import FacebookIcon from "../../images/svg/facebook-f-brands.inline.svg"
-import InstagramIcon from "../../images/svg/instagram-brands.inline.svg"
 import GithubIcon from "../../images/svg/github.inline.svg"
+import InstagramIcon from "../../images/svg/instagram-brands.inline.svg"
 import LinkedInIcon from "../../images/svg/linkedin-in-brands.inline.svg"
 import SteamIcon from "../../images/svg/steam-brands.inline.svg"
-import { bounceInVariant, enterFromLeftVariant } from "../../@animations"
 import SpringyButton from "../Tools/SpringyButton"
-import { graphql, useStaticQuery } from "gatsby"
-import { ContentfulRepeater } from "../../@types/enums"
+import SocialIcon from "./SocialIcon"
 
 export interface indexProps {}
 
 const index: FunctionComponent<indexProps> = props => {
+  const submitContactApi = useApi(postContactMe)
+  const [form, setForm] = useState<postContactMeData>({
+    name: "",
+    email: "",
+    text: "",
+  })
+  const handleFormInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [event.target.name]: event.target.value })
+  }
+
   const handleSubmitContact = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    submitContactApi.request(form)
   }
 
   const {
@@ -103,6 +118,8 @@ const index: FunctionComponent<indexProps> = props => {
               name="name"
               placeholder="Name"
               type="text"
+              value={form.name}
+              onChange={handleFormInputChange}
             />
           </div>
           <div className="form-group">
@@ -112,15 +129,19 @@ const index: FunctionComponent<indexProps> = props => {
               name="email"
               placeholder="Email"
               type="text"
+              value={form.email}
+              onChange={handleFormInputChange}
             />
           </div>
           <div className="form-group">
             <textarea
               className="resize-none"
               id="message"
-              name="message"
+              name="text"
               placeholder="Message"
               rows={8}
+              value={form.text}
+              onChange={handleFormInputChange}
             ></textarea>
           </div>
           <SpringyButton
@@ -136,16 +157,16 @@ const index: FunctionComponent<indexProps> = props => {
           <SocialIcon href={getSocialMediaLink("facebook")}>
             <FacebookIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon href={getSocialMediaLink('instagram')}>
+          <SocialIcon href={getSocialMediaLink("instagram")}>
             <InstagramIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon href={getSocialMediaLink('linkedin')}>
+          <SocialIcon href={getSocialMediaLink("linkedin")}>
             <LinkedInIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon href={getSocialMediaLink('github')}>
+          <SocialIcon href={getSocialMediaLink("github")}>
             <GithubIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
-          <SocialIcon href={getSocialMediaLink('steam')}>
+          <SocialIcon href={getSocialMediaLink("steam")}>
             <SteamIcon width={20} height={25} fill="#e2e8f0" />
           </SocialIcon>
         </div>

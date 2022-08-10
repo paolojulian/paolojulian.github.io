@@ -16,7 +16,7 @@ export type PortfolioItem = {
   thumbnail: {
     id: string;
     url: string;
-    gatsbyImage: IGatsbyImageData
+    gatsbyImageData: IGatsbyImageData
   }
 }
 

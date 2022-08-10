@@ -6,6 +6,7 @@
   "author": "Paolo Vincent Julian <paolovincentarch@gmail.com>",
   "dependencies": {
     "@headlessui/react": "^1.6.4",
+    "apisauce": "^2.1.5",
     "autoprefixer": "^10.4.7",
     "compass-mixins": "^0.12.11",
     "framer-motion": "^6.3.11",
@@ -45,7 +46,7 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "deploy": "gatsby build --prefix-paths && npm run deploy:gh-pages",
+    "deploy": "npm run clean && gatsby build --prefix-paths && npm run deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d public",
     "build": "gatsby build",
     "develop": "gatsby develop --host=0.0.0.0",

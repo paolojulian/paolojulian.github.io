@@ -4,7 +4,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      body: ["Nunito"],
+      body: ["sans-serif"],
       porto: ["Porto"],
       portica: ["Portica"],
     },
