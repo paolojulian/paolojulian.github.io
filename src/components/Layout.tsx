@@ -1,4 +1,5 @@
 import * as React from "react"
+import ModalProvider from "../providers/modal"
 import Landing from "./Landing"
 
 import "./Layout.scss"
@@ -9,14 +10,14 @@ type LayoutProps = {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <div className="flex flex-col">
-    <Landing>
-      <Navbar />
-      <main className="bg-sky-50">
-        {children}
-      </main>
-    </Landing>
-  </div>
+  <ModalProvider>
+    <div className="flex flex-col">
+      <Landing>
+        <Navbar />
+        <main className="bg-sky-50">{children}</main>
+      </Landing>
+    </div>
+  </ModalProvider>
 )
 
 export default Layout
