@@ -10,15 +10,13 @@ const ProgressBar: FunctionComponent<ProgressBarProps> = ({
   fillPercentage,
 }) => {
   return (
-    <div
-      className="flex items-stretch mb-2 rounded-lg overflow-hidden"
-    >
-      <div className="bg-orange-500 bg-opacity-80 py-1 w-48 flex text-base font-medium justify-center">
+    <div className="flex items-stretch mb-4 rounded-2xl overflow-hidden shadow-glowWhite">
+      <div className="bg-cyan-600 bg-opacity-80 py-1 w-48 flex text-base font-medium justify-center">
         {title}
       </div>
       <div className="background bg-gray-300 w-full flex items-center">
         <div
-          className="thumb bg-orange-300 h-full"
+          className="thumb bg-cyan-400 h-full"
           style={{ width: `${fillPercentage}%` }}
         >
           &nbsp;

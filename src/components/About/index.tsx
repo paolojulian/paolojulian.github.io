@@ -1,13 +1,14 @@
+import { motion, useAnimation } from "framer-motion"
+import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React, { FunctionComponent, useEffect } from "react"
-import { motion, useAnimation } from "framer-motion"
-import Ideals from "./Ideals"
-import HardSkills from "./HardSkills"
-import SoftSkills from "./SoftSkills"
-import { graphql, useStaticQuery } from "gatsby"
-import SpringyButton from "../Tools/SpringyButton"
 import { useInView } from "react-intersection-observer"
 import { enterFromLeftVariant, enterFromRightVariant } from "../../@animations"
+import SectionTitle from "../atoms/SectionTitle"
+import SpringyButton from "../Tools/SpringyButton"
+import HardSkills from "./HardSkills"
+import Ideals from "./Ideals"
+import SoftSkills from "./SoftSkills"
 
 export interface IntroductionProps {}
 
@@ -23,12 +24,6 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
   )
 
   const controls = useAnimation()
-  const aboutControls = useAnimation()
-  const [aboutRef, inViewAbout] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-    delay: 0.5,
-  })
   const [ref, inView] = useInView({ threshold: 1, triggerOnce: true })
 
   useEffect(() => {
@@ -37,29 +32,11 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
       console.log("test")
     }
   }, [controls, inView])
-  useEffect(() => {
-    if (inViewAbout) {
-      aboutControls.start("visible")
-    }
-  }, [aboutControls, inViewAbout])
 
   return (
     <section title="About Me" id="about" className="py-32 bg-slate-800">
       <div className="container max-w-screen-lg mx-auto">
-        <motion.ul
-          animate={aboutControls}
-          initial="invisible"
-          variants={enterFromLeftVariant({ staggerChildren: 0.5 })}
-          className="section-title mb-24"
-        >
-          <motion.li variants={enterFromLeftVariant()}>About</motion.li>
-          <motion.li
-            variants={enterFromLeftVariant()}
-            className="pt-4 mx-auto w-24 border-b-4 border-sky-100"
-          ></motion.li>
-        </motion.ul>
-
-        <div ref={aboutRef}></div>
+        <SectionTitle>About</SectionTitle>
 
         <Ideals />
 

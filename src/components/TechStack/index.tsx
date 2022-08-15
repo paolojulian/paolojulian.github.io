@@ -1,15 +1,15 @@
+import { motion } from "framer-motion"
 import { StaticImage } from "gatsby-plugin-image"
 import React, { FunctionComponent } from "react"
-import { motion } from "framer-motion"
-import TechCard from "../Tools/TechCard"
-import DraftingIcon from "../../images/svg/drafting-compass-solid.inline.svg"
-import DoubleRightIcon from "../../images/svg/angle-double-right-solid.inline.svg"
-import AppPill from "../Tools/AppPill"
 import {
   enterFromBottomVariant,
-  fadeInVariant,
-  rotateFromRightVariant,
+  rotateFromRightVariant
 } from "../../@animations"
+import DoubleRightIcon from "../../images/svg/angle-double-right-solid.inline.svg"
+import DraftingIcon from "../../images/svg/drafting-compass-solid.inline.svg"
+import { AppIconMotion } from "../atoms/AppIcon"
+import AppPill from "../Tools/AppPill"
+import TechCard from "../Tools/TechCard"
 
 export interface indexProps {}
 
@@ -105,13 +105,14 @@ const index: FunctionComponent<indexProps> = props => {
             variants={enterFromBottomVariant({ staggerChildren: 0.3 })}
             className="w-full md:w-4/12 px-12 md:px-4 ml-auto mr-auto"
           >
-            <motion.div
+            <AppIconMotion
               variants={enterFromBottomVariant()}
-              className="text-gray-500 bg-orange-400 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full"
-              data-aos="fade-up"
+              className="mb-6"
+              size="lg"
             >
               <DraftingIcon width={30} fill="#ffffff" />
-            </motion.div>
+            </AppIconMotion>
+
             <motion.h3
               variants={enterFromBottomVariant()}
               className="text-3xl mb-2 font-semibold leading-normal"
@@ -184,7 +185,11 @@ const index: FunctionComponent<indexProps> = props => {
                 data-aos="fade-up"
               >
                 View all{" "}
-                <DoubleRightIcon height={20} fill="white" className="ml-2 inline" />
+                <DoubleRightIcon
+                  height={20}
+                  fill="white"
+                  className="ml-2 inline"
+                />
               </a>
             </motion.div>
           </motion.div>

@@ -1,10 +1,12 @@
+import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { motion } from "framer-motion"
 
-import ProgressBar from "../Tools/ProgressBar"
-import { JobSkill } from "../../@types/enums"
 import { fadeInVariant } from "../../@animations"
+import { JobSkill } from "../../@types/enums"
+import AppIcon from "../atoms/AppIcon"
+import Heading from "../atoms/Heading"
+import ProgressBar from "../Tools/ProgressBar"
 
 export interface SoftSkillsProps {}
 
@@ -34,7 +36,7 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
         data-aos-delay="600"
         data-aos-anchor="#hardSkills"
       >
-        <div className="text-sky-50 p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-400">
+        <AppIcon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#ffffff"
@@ -48,10 +50,9 @@ const SoftSkills: FunctionComponent<SoftSkillsProps> = props => {
               d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
             />
           </svg>
-        </div>
-        <h3 className="text-2xl mx-4 font-semibold leading-normal">
-          Soft Skills
-        </h3>
+        </AppIcon>
+
+        <Heading>Soft Skills</Heading>
       </div>
 
       <motion.div

@@ -11,6 +11,7 @@ import GithubIcon from "../../images/svg/github.inline.svg"
 import InstagramIcon from "../../images/svg/instagram-brands.inline.svg"
 import LinkedInIcon from "../../images/svg/linkedin-in-brands.inline.svg"
 import SteamIcon from "../../images/svg/steam-brands.inline.svg"
+import SectionTitle from "../atoms/SectionTitle"
 import SpringyButton from "../Tools/SpringyButton"
 import SocialIcon from "./SocialIcon"
 
@@ -80,20 +81,7 @@ const index: FunctionComponent<indexProps> = props => {
         id="contact"
         className="text-black text-center my-auto py-10 md:py-0"
       >
-        <motion.div
-          initial="invisible"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={enterFromLeftVariant({ staggerChildren: 0.4 })}
-        >
-          <motion.h1
-            variants={enterFromLeftVariant()}
-            className="section-title"
-          >
-            CONTACT
-          </motion.h1>
-          <motion.div className="pt-4 mx-auto w-24 mb-8 border-b-4 border-black"></motion.div>
-        </motion.div>
+        <SectionTitle variant="light" className="mb-12">CONTACT</SectionTitle>
         <motion.div
           initial="invisible"
           whileInView="visible"

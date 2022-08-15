@@ -1,9 +1,11 @@
-import { graphql, useStaticQuery } from "gatsby"
 import { AnimationProps, motion } from "framer-motion"
+import { graphql, useStaticQuery } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { JobSkill } from "../../@types/enums"
-import ProgressBar from "../Tools/ProgressBar"
 import { fadeInVariant } from "../../@animations"
+import { JobSkill } from "../../@types/enums"
+import AppIcon from "../atoms/AppIcon"
+import Heading from "../atoms/Heading"
+import ProgressBar from "../Tools/ProgressBar"
 
 export interface SkillsProps {}
 
@@ -27,7 +29,7 @@ const Skills: FunctionComponent<SkillsProps> = props => {
   return (
     <>
       <div className="flex flex-row-reverse md:flex-row items-center mb-6">
-        <div className="text-sky-50 p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-400">
+        <AppIcon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -41,11 +43,9 @@ const Skills: FunctionComponent<SkillsProps> = props => {
               d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
             />
           </svg>
-        </div>
+        </AppIcon>
 
-        <h3 className="text-2xl mx-4 font-semibold leading-normal">
-          Hard Skills
-        </h3>
+        <Heading>Hard Skills</Heading>
       </div>
 
       <motion.div

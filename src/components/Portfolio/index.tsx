@@ -7,6 +7,7 @@ import {
   enterFromRightVariant
 } from "../../@animations"
 import { PortfolioItem } from "../../@types/enums"
+import SectionTitle from "../atoms/SectionTitle"
 import PortfolioCardMotion from "./PortfolioCard"
 import PortfolioModal from "./PortfolioModal"
 
@@ -39,7 +40,12 @@ const index: FunctionComponent<indexProps> = props => {
                 }
                 stack
                 thumbnail {
-                  gatsbyImageData(layout: CONSTRAINED, width: 800, height: 600, quality: 90)
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    width: 800
+                    height: 600
+                    quality: 90
+                  )
                   id
                   url
                 }
@@ -51,7 +57,8 @@ const index: FunctionComponent<indexProps> = props => {
     )
 
   const [isLearnMoreModalOpen, setLearnMoreModalOpen] = React.useState(false)
-  const [selectedPortfolioItem, setSelectedPortfolioItem] = React.useState<PortfolioItem>()
+  const [selectedPortfolioItem, setSelectedPortfolioItem] =
+    React.useState<PortfolioItem>()
   const onLearnMore = (portfolioItem: PortfolioItem) => {
     setSelectedPortfolioItem(portfolioItem)
     setLearnMoreModalOpen(true)
@@ -64,21 +71,7 @@ const index: FunctionComponent<indexProps> = props => {
         className="justify-center text-center flex flex-wrap pt-32 pb-64 bg-slate-900"
       >
         <motion.div className="w-full md:w-6/12 px-12 md:px-4">
-          <motion.h2
-            initial="invisible"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={enterFromRightVariant({ staggerChildren: 0.5 })}
-            className="section-title mb-12"
-          >
-            <motion.div variants={enterFromRightVariant()}>
-              Portfolio
-            </motion.div>
-            <motion.div
-              variants={enterFromRightVariant()}
-              className="pt-4 mx-auto w-32 border-b-4 border-sky-100"
-            ></motion.div>
-          </motion.h2>
+          <SectionTitle className="mb-12">Portfolio</SectionTitle>
           <motion.p
             initial="invisible"
             whileInView="visible"
