@@ -1,8 +1,8 @@
 import { StaticImage } from "gatsby-plugin-image"
 import React, { FC, ReactNode } from "react"
 
+import Preloader from "../Preloader"
 import "./Landing.scss"
-import Preloader from "./Preloader"
 
 type LandingProps = {
   children: ReactNode

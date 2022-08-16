@@ -1,21 +1,30 @@
-import { motion } from "framer-motion"
-import React, { FunctionComponent, useState } from "react"
+import { motion } from "framer-motion";
+import React, { FunctionComponent, useState } from "react";
+import * as Yup from 'yup';
 
-import { graphql, useStaticQuery } from "gatsby"
-import { bounceInVariant, enterFromLeftVariant } from "../../../@animations"
-import { postContactMe, postContactMeData } from "../../../@api/emailService"
-import { ContentfulRepeater } from "../../../@types/enums"
-import useApi from "../../../hooks/useApi"
-import FacebookIcon from "../../../images/svg/facebook-f-brands.inline.svg"
-import GithubIcon from "../../../images/svg/github.inline.svg"
-import InstagramIcon from "../../../images/svg/instagram-brands.inline.svg"
-import LinkedInIcon from "../../../images/svg/linkedin-in-brands.inline.svg"
-import SteamIcon from "../../../images/svg/steam-brands.inline.svg"
-import SectionTitle from "../../atoms/SectionTitle"
-import SocialIcon from "../../atoms/SocialIcon"
-import SpringyButton from "../../atoms/SpringyButton"
+import { graphql, useStaticQuery } from "gatsby";
+import { bounceInVariant, enterFromLeftVariant } from "../../../@animations";
+import { postContactMe, postContactMeData } from "../../../@api/emailService";
+import { ContentfulRepeater } from "../../../@types/enums";
+import useApi from "../../../hooks/useApi";
+import FacebookIcon from "../../../images/svg/facebook-f-brands.inline.svg";
+import GithubIcon from "../../../images/svg/github.inline.svg";
+import InstagramIcon from "../../../images/svg/instagram-brands.inline.svg";
+import LinkedInIcon from "../../../images/svg/linkedin-in-brands.inline.svg";
+import SteamIcon from "../../../images/svg/steam-brands.inline.svg";
+import SectionTitle from "../../atoms/SectionTitle";
+import SocialIcon from "../../atoms/SocialIcon";
+import SpringyButton from "../../atoms/SpringyButton";
 
 export interface indexProps {}
+
+export const validationSchema: Yup.AnyObjectSchema = Yup.object().shape({
+  first_name: Yup.string().required().label('First Name'),
+  last_name: Yup.string().required().label('Last Name'),
+  username: Yup.string().required().label('Username'),
+  email: Yup.string().email().required().label('Email'),
+  password: Yup.string().required().min(6).label('Password'),
+});
 
 const index: FunctionComponent<indexProps> = props => {
   const submitContactApi = useApi(postContactMe)

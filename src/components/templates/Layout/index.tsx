@@ -1,9 +1,9 @@
 import * as React from "react"
-import ModalProvider from "../providers/modal"
-import Landing from "./Landing"
+import ModalProvider from "../../../providers/modal"
+import Landing from "../../organisms/Landing"
 
+import Navbar from "../../organisms/Navbar"
 import "./Layout.scss"
-import Navbar from "./Navbar"
 
 type LayoutProps = {
   children: React.ReactNode

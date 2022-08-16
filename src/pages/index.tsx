@@ -2,12 +2,12 @@
 import { graphql, PageProps } from "gatsby"
 import * as React from "react"
 
-import Layout from "../components/Layout"
+import Seo from "../components/atoms/Seo"
 import About from "../components/organisms/About"
 import Contact from "../components/organisms/Contact"
 import Portfolio from "../components/organisms/Portfolio"
 import TechStack from "../components/organisms/TechStack"
-import Seo from "../components/Seo"
+import Layout from "../components/templates/Layout/index"
 
 type DataProps = {
   contentfulPortfolio: {
