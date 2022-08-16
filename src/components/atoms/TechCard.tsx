@@ -1,4 +1,4 @@
-import React, { FunctionComponent, HTMLProps } from "react"
+import React, { FunctionComponent, HTMLProps } from "react";
 
 interface TechCardProps extends HTMLProps<HTMLDivElement> {
   title: string;

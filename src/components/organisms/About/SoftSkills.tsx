@@ -2,11 +2,11 @@ import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
 import React, { FunctionComponent } from "react"
 
-import { fadeInVariant } from "../../@animations"
-import { JobSkill } from "../../@types/enums"
-import AppIcon from "../atoms/AppIcon"
-import Heading from "../atoms/Heading"
-import ProgressBar from "../Tools/ProgressBar"
+import { fadeInVariant } from "../../../@animations"
+import { JobSkill } from "../../../@types/enums"
+import AppIcon from "../../atoms/AppIcon"
+import Heading from "../../atoms/Heading"
+import ProgressBar from "../../atoms/ProgressBar"
 
 export interface SoftSkillsProps {}
 

@@ -5,9 +5,9 @@ import React, { FunctionComponent } from "react"
 import {
   enterFromBottomVariant,
   enterFromRightVariant
-} from "../../@animations"
-import { PortfolioItem } from "../../@types/enums"
-import SectionTitle from "../atoms/SectionTitle"
+} from "../../../@animations"
+import { PortfolioItem } from "../../../@types/enums"
+import SectionTitle from "../../atoms/SectionTitle"
 import PortfolioCardMotion from "./PortfolioCard"
 import PortfolioModal from "./PortfolioModal"
 

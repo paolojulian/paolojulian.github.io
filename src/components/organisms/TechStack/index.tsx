@@ -4,12 +4,13 @@ import React, { FunctionComponent } from "react"
 import {
   enterFromBottomVariant,
   rotateFromRightVariant
-} from "../../@animations"
-import DoubleRightIcon from "../../images/svg/angle-double-right-solid.inline.svg"
-import DraftingIcon from "../../images/svg/drafting-compass-solid.inline.svg"
-import { AppIconMotion } from "../atoms/AppIcon"
-import AppPill from "../Tools/AppPill"
-import TechCard from "../Tools/TechCard"
+} from "../../../@animations"
+import DoubleRightIcon from "../../../images/svg/angle-double-right-solid.inline.svg"
+import DraftingIcon from "../../../images/svg/drafting-compass-solid.inline.svg"
+import { AppIconMotion } from "../../atoms/AppIcon"
+import AppPill from "../../atoms/AppPill"
+import SpringyButton from "../../atoms/SpringyButton"
+import TechCard from "../../atoms/TechCard"
 
 export interface indexProps {}
 
@@ -178,19 +179,21 @@ const index: FunctionComponent<indexProps> = props => {
               </motion.li>
             </motion.ul>
             <motion.div variants={enterFromBottomVariant()}>
-              <a
-                className="font-bold bg-pink-400 py-2 px-5 rounded-3xl text-white hover:opacity-75 ease-linear transition-opacity duration-150 animate-pulse hover:animate-none"
-                href="https://stackshare.io/paolovincentarch/my-stack"
-                target="__blank"
-                data-aos="fade-up"
-              >
-                View all{" "}
-                <DoubleRightIcon
-                  height={20}
-                  fill="white"
-                  className="ml-2 inline"
-                />
-              </a>
+              <SpringyButton>
+                <a
+                  className="font-bold py-2 px-5 rounded-3xl text-white hover:opacity-75 ease-linear transition-opacity duration-150 hover:animate-none"
+                  href="https://stackshare.io/paolovincentarch/my-stack"
+                  target="__blank"
+                  data-aos="fade-up"
+                >
+                  View all{" "}
+                  <DoubleRightIcon
+                    height={20}
+                    fill="white"
+                    className="ml-2 inline"
+                  />
+                </a>
+              </SpringyButton>
             </motion.div>
           </motion.div>
         </div>

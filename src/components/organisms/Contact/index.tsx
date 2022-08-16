@@ -2,18 +2,18 @@ import { motion } from "framer-motion"
 import React, { FunctionComponent, useState } from "react"
 
 import { graphql, useStaticQuery } from "gatsby"
-import { bounceInVariant, enterFromLeftVariant } from "../../@animations"
-import { postContactMe, postContactMeData } from "../../@api/emailService"
-import { ContentfulRepeater } from "../../@types/enums"
-import useApi from "../../hooks/useApi"
-import FacebookIcon from "../../images/svg/facebook-f-brands.inline.svg"
-import GithubIcon from "../../images/svg/github.inline.svg"
-import InstagramIcon from "../../images/svg/instagram-brands.inline.svg"
-import LinkedInIcon from "../../images/svg/linkedin-in-brands.inline.svg"
-import SteamIcon from "../../images/svg/steam-brands.inline.svg"
-import SectionTitle from "../atoms/SectionTitle"
-import SpringyButton from "../Tools/SpringyButton"
-import SocialIcon from "./SocialIcon"
+import { bounceInVariant, enterFromLeftVariant } from "../../../@animations"
+import { postContactMe, postContactMeData } from "../../../@api/emailService"
+import { ContentfulRepeater } from "../../../@types/enums"
+import useApi from "../../../hooks/useApi"
+import FacebookIcon from "../../../images/svg/facebook-f-brands.inline.svg"
+import GithubIcon from "../../../images/svg/github.inline.svg"
+import InstagramIcon from "../../../images/svg/instagram-brands.inline.svg"
+import LinkedInIcon from "../../../images/svg/linkedin-in-brands.inline.svg"
+import SteamIcon from "../../../images/svg/steam-brands.inline.svg"
+import SectionTitle from "../../atoms/SectionTitle"
+import SocialIcon from "../../atoms/SocialIcon"
+import SpringyButton from "../../atoms/SpringyButton"
 
 export interface indexProps {}
 
@@ -81,7 +81,9 @@ const index: FunctionComponent<indexProps> = props => {
         id="contact"
         className="text-black text-center my-auto py-10 md:py-0"
       >
-        <SectionTitle variant="light" className="mb-12">CONTACT</SectionTitle>
+        <SectionTitle variant="light" className="mb-12">
+          CONTACT
+        </SectionTitle>
         <motion.div
           initial="invisible"
           whileInView="visible"

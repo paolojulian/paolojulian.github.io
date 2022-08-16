@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { Fragment, useEffect, useRef, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
-import { PortfolioItem } from "../../@types/enums"
+import React, { Fragment, useEffect, useRef, useState } from "react"
+import { PortfolioItem } from "../../../@types/enums"
 
 interface PortfolioModalProps {
   onClose: () => any

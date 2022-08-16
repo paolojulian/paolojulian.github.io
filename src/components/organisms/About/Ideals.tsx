@@ -1,8 +1,8 @@
 import { motion, useAnimation } from "framer-motion"
 import React, { FunctionComponent, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
-import { fadeInVariant, rotateFromRightVariant } from "../../@animations"
-import { AppIconMotion } from "../atoms/AppIcon"
+import { fadeInVariant, rotateFromRightVariant } from "../../../@animations"
+import { AppIconMotion } from "../../atoms/AppIcon"
 
 export interface IdealsProps {}
 

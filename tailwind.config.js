@@ -15,13 +15,19 @@ module.exports = {
       },
       boxShadow: {
         neuroDark: "20px 20px 60px #1a2332, -20px -20px 60px #232f44;",
+        neuroPink: `${colors.slate[900]} 6px 6px 11px, ${colors.slate[600]} -4px -4px 9px`,
         glowOrange: "0 0 10px " + colors.orange[400],
+        glowPink: "0 0 10px " + colors.rose[400],
         glowSky: "0 0 10px " + colors.cyan[500],
         glowWhite: "0 0 8px " + colors.white,
         orangeButton: "20px 20px 60px #d57c33, -20px -20px 60px #ffa845;",
       },
       colors: {
         black: "#181a24",
+      },
+      dropShadow: {
+        glowWhite: "0 0 2px rgba(255,255,255,0.7)",
+        glowBlack: "0 0 5px rgba(0,0,0,0.45)",
       },
       keyframes: {
         wavy: {

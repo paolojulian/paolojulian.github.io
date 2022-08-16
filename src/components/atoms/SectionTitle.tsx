@@ -33,20 +33,32 @@ const SectionTitle = React.forwardRef((props: SectionTitleProps, ref) => {
     }
   }, [variant])
 
+  const dropShadowClass = useMemo(() => {
+    switch (variant) {
+      case "light":
+        return "drop-shadow-glowBlack"
+      case "dark":
+      default:
+        return "drop-shadow-glowWhite"
+    }
+  }, [variant])
+
   return (
     <>
       <motion.ul
         {...otherProps}
-        className={`font-semibold text-4xl text-center uppercase mb-24 list-none ${className}`}
+        className={`font-semibold text-4xl text-center uppercase  mb-24 list-none ${className}`}
         animate={controls}
         initial="invisible"
         variants={enterFromLeftVariant({ staggerChildren: 0.5 })}
         ref={ref as any}
       >
-        <motion.li variants={enterFromLeftVariant()}>{children}</motion.li>
+        <motion.li variants={enterFromLeftVariant()}>
+          <h1 className={`${dropShadowClass}`}>{children}</h1>
+        </motion.li>
         <motion.li
           variants={enterFromLeftVariant()}
-          className={`pt-4 mx-auto w-24 border-b-4 ${borderClass}`}
+          className={`pt-4 mx-auto w-24 border-b-4 ${dropShadowClass} ${borderClass}`}
         ></motion.li>
       </motion.ul>
       <div ref={dividerRef}></div>

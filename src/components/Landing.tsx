@@ -64,16 +64,10 @@ const Landing: FC<LandingProps> = ({ children }) => {
         <div className="parallax__layer parallax__layer__6">
           <div className="max-w-screen-xl mx-auto h-full w-full flex items-center justify-center">
             <div className="flex-1 text-3xl">
-              <h1 className="text-4xl md:text-5xl mb-8 font-portica text-center">
-                <span className="text-sky-50">PAOLO</span>
-                <span className="text-black">JULIAN</span>
+              <h1 className="text-4xl md:text-5xl mb-8 font-portica text-center animate-pulse">
+                <span className="text-sky-50 drop-shadow-glowWhite">PAOLO</span>
+                <span className="text-black drop-shadow-glowBlack">JULIAN</span>
               </h1>
-              {/* <div className="jobs text-sky-50 tracking-wide text-md md:text-lg text-left">
-                <h3>Full Stack Developer</h3>
-                <h3>Producer</h3>
-                <h3>Musician</h3>
-                <h3>Gamer</h3>
-              </div> */}
             </div>
           </div>
         </div>

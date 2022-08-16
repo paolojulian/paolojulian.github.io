@@ -3,9 +3,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React, { FunctionComponent, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
-import { enterFromLeftVariant, enterFromRightVariant } from "../../@animations"
-import SectionTitle from "../atoms/SectionTitle"
-import SpringyButton from "../Tools/SpringyButton"
+import { enterFromLeftVariant, enterFromRightVariant } from "../../../@animations"
+import SectionTitle from "../../atoms/SectionTitle"
+import SpringyButton from "../../atoms/SpringyButton"
 import HardSkills from "./HardSkills"
 import Ideals from "./Ideals"
 import SoftSkills from "./SoftSkills"
@@ -52,10 +52,10 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
               <StaticImage src="../../images/profile.jpg" alt="Profile" />
             </div>
             <div className="max-w-md text-center mt-4">
-              <p className="mb-4 text-center text-lg font-semibold">
+              <p className="mb-5 text-center text-lg font-semibold">
                 WHO IS THIS GUY?
               </p>
-              <p className="ml-6 mb-4">{contentfulPortfolio.description}</p>
+              <p className="ml-6 mb-8">{contentfulPortfolio.description}</p>
               <SpringyButton
                 onClick={() => (window.location.href = "#contact")}
               >
