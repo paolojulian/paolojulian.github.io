@@ -1,47 +1,50 @@
-import { motion } from "framer-motion";
-import React, { FunctionComponent, useState } from "react";
-import * as Yup from 'yup';
+import { motion } from "framer-motion"
+import React, { FunctionComponent, useState } from "react"
+import * as Yup from "yup"
 
-import { graphql, useStaticQuery } from "gatsby";
-import { bounceInVariant, enterFromLeftVariant } from "../../../@animations";
-import { postContactMe, postContactMeData } from "../../../@api/emailService";
-import { ContentfulRepeater } from "../../../@types/enums";
-import useApi from "../../../hooks/useApi";
-import FacebookIcon from "../../../images/svg/facebook-f-brands.inline.svg";
-import GithubIcon from "../../../images/svg/github.inline.svg";
-import InstagramIcon from "../../../images/svg/instagram-brands.inline.svg";
-import LinkedInIcon from "../../../images/svg/linkedin-in-brands.inline.svg";
-import SteamIcon from "../../../images/svg/steam-brands.inline.svg";
-import SectionTitle from "../../atoms/SectionTitle";
-import SocialIcon from "../../atoms/SocialIcon";
-import SpringyButton from "../../atoms/SpringyButton";
+import { Formik, FormikHelpers } from "formik"
+import { graphql, useStaticQuery } from "gatsby"
+import { bounceInVariant, enterFromLeftVariant } from "../../../@animations"
+import { postContactMe, postContactMeData } from "../../../@api/emailService"
+import { ContentfulRepeater } from "../../../@types/enums"
+import { ContactFormSchema } from "../../../@types/forms/contact-form"
+import useApi from "../../../hooks/useApi"
+import FacebookIcon from "../../../images/svg/facebook-f-brands.inline.svg"
+import GithubIcon from "../../../images/svg/github.inline.svg"
+import InstagramIcon from "../../../images/svg/instagram-brands.inline.svg"
+import LinkedInIcon from "../../../images/svg/linkedin-in-brands.inline.svg"
+import SteamIcon from "../../../images/svg/steam-brands.inline.svg"
+import AppInput from "../../atoms/AppInput"
+import AppTextArea from "../../atoms/AppTextArea"
+import FormikErrorAlert from "../../atoms/FormikErrorAlert"
+import SectionTitle from "../../atoms/SectionTitle"
+import SocialIcon from "../../atoms/SocialIcon"
+import SpringyButton from "../../atoms/SpringyButton"
+import FormGroup from "../../molecules/FormGroup"
 
 export interface indexProps {}
 
+const initialFormValues: ContactFormSchema = {
+  name: "",
+  email: "",
+  message: "",
+}
+
 export const validationSchema: Yup.AnyObjectSchema = Yup.object().shape({
-  first_name: Yup.string().required().label('First Name'),
-  last_name: Yup.string().required().label('Last Name'),
-  username: Yup.string().required().label('Username'),
-  email: Yup.string().email().required().label('Email'),
-  password: Yup.string().required().min(6).label('Password'),
-});
+  name: Yup.string().required().min(4).max(64).label("Name"),
+  email: Yup.string().email().required().label("Email"),
+  message: Yup.string().required().label("Message"),
+})
 
 const index: FunctionComponent<indexProps> = props => {
   const submitContactApi = useApi(postContactMe)
-  const [form, setForm] = useState<postContactMeData>({
-    name: "",
-    email: "",
-    text: "",
-  })
-  const handleFormInputChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm({ ...form, [event.target.name]: event.target.value })
-  }
 
-  const handleSubmitContact = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    submitContactApi.request(form)
+  const handleSubmitContact = async (
+    form: ContactFormSchema,
+    { resetForm }: FormikHelpers<ContactFormSchema>
+  ) => {
+    await submitContactApi.request(form)
+    resetForm()
   }
 
   const {
@@ -102,54 +105,74 @@ const index: FunctionComponent<indexProps> = props => {
         >
           Have a question or want to work together?
         </motion.div>
-        <motion.form
-          initial="invisible"
-          whileInView="visible"
-          variants={bounceInVariant({ delay: 0.75 })}
-          viewport={{ once: true }}
-          className="w-96 max-w-8xl mx-auto mb-10"
+        <Formik
           onSubmit={handleSubmitContact}
+          validationSchema={validationSchema}
+          initialValues={initialFormValues}
         >
-          <div className="form-group">
-            <input
-              autoComplete="on"
-              id="name"
-              name="name"
-              placeholder="Name"
-              type="text"
-              value={form.name}
-              onChange={handleFormInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              autoComplete="on"
-              id="email"
-              name="email"
-              placeholder="Email"
-              type="text"
-              value={form.email}
-              onChange={handleFormInputChange}
-            />
-          </div>
-          <div className="form-group">
-            <textarea
-              className="resize-none"
-              id="message"
-              name="text"
-              placeholder="Message"
-              rows={8}
-              value={form.text}
-              onChange={handleFormInputChange}
-            ></textarea>
-          </div>
-          <SpringyButton
-            className="w-full uppercase font-semibold"
-            type="submit"
-          >
-            Submit
-          </SpringyButton>
-        </motion.form>
+          {({
+            handleReset,
+            handleChange,
+            handleSubmit,
+            isValid,
+            touched,
+            errors,
+            values,
+          }) => (
+            <motion.form
+              initial="invisible"
+              whileInView="visible"
+              variants={bounceInVariant({ delay: 0.75 })}
+              viewport={{ once: true }}
+              className="w-96 max-w-8xl mx-auto mb-10"
+              onSubmit={handleSubmit}
+              onReset={handleReset}
+            >
+              <FormikErrorAlert />
+              <FormGroup error={!!touched.name ? errors.name : ""}>
+                <AppInput
+                  autoComplete="on"
+                  id="name"
+                  name="name"
+                  placeholder="Name"
+                  type="text"
+                  error={!!touched.name && !!errors.name}
+                  value={values.name}
+                  onChange={handleChange}
+                />
+              </FormGroup>
+              <FormGroup error={!!touched.email ? errors.email : ""}>
+                <AppInput
+                  autoComplete="on"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  type="text"
+                  error={!!touched.email && !!errors.email}
+                  value={values.email}
+                  onChange={handleChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <AppTextArea
+                  id="message"
+                  name="message"
+                  placeholder="Message"
+                  rows={8}
+                  value={values.message}
+                  error={!!touched.message && !!errors.message}
+                  onChange={handleChange}
+                />
+              </FormGroup>
+              <SpringyButton
+                className="w-full uppercase font-semibold"
+                type="submit"
+              >
+                Submit
+              </SpringyButton>
+            </motion.form>
+          )}
+        </Formik>
       </section>
       <div className="bg-black text-gray-400 py-14">
         <div className="flex w-full items-center justify-center pb-10">

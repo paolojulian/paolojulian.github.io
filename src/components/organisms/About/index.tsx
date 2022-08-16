@@ -49,7 +49,7 @@ const Introduction: FunctionComponent<IntroductionProps> = props => {
             className="flex flex-col items-center justify-center mx-auto mb-24 md:mb-0"
           >
             <div className="select-none rounded-full overflow-hidden border-2 border-sky-300 h-80 w-80">
-              <StaticImage src="../../images/profile.jpg" alt="Profile" />
+              <StaticImage src="../../../images/profile.jpg" alt="Profile" />
             </div>
             <div className="max-w-md text-center mt-4">
               <p className="mb-5 text-center text-lg font-semibold">

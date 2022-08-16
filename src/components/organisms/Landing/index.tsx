@@ -18,7 +18,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__8.png"
+            src="../../../images/parallax/parallax__8.png"
           />
         </div>
         <div className={`parallax__layer parallax__layer__2`}>
@@ -26,7 +26,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__7.png"
+            src="../../../images/parallax/parallax__7.png"
           />
         </div>
         <div className={`parallax__layer parallax__layer__3`}>
@@ -34,7 +34,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__6.png"
+            src="../../../images/parallax/parallax__6.png"
           />
         </div>
         <div className={`parallax__layer parallax__layer__4`}>
@@ -42,7 +42,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__5.png"
+            src="../../../images/parallax/parallax__5.png"
           />
         </div>
         <div className={`parallax__layer parallax__layer__5`}>
@@ -50,7 +50,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__4.png"
+            src="../../../images/parallax/parallax__4.png"
           />
         </div>
         <div className={`parallax__layer parallax__layer__6`}>
@@ -58,7 +58,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__3.png"
+            src="../../../images/parallax/parallax__3.png"
           />
         </div>
         <div className="parallax__layer parallax__layer__6">
@@ -76,7 +76,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__2.png"
+            src="../../../images/parallax/parallax__2.png"
           />
         </div>
         <div className={`parallax__layer parallax__layer__8`}>
@@ -84,7 +84,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={90}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__1.png"
+            src="../../../images/parallax/parallax__1.png"
           />
         </div>
         <div className={`parallax__base z-30`}>
@@ -92,7 +92,7 @@ const Landing: FC<LandingProps> = ({ children }) => {
             quality={75}
             className="h-full w-full"
             alt="Human"
-            src="../images/parallax/parallax__0.png"
+            src="../../../images/parallax/parallax__0.png"
           />
         </div>
         <div className={`parallax__layer parallax__layer__3`}>

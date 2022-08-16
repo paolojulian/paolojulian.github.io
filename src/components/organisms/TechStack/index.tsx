@@ -57,7 +57,7 @@ const index: FunctionComponent<indexProps> = props => {
             payment
                   "
                   icon={
-                    <StaticImage alt="Mobile" src="../../images/mobile.png" />
+                    <StaticImage alt="Mobile" src="../../../images/mobile.png" />
                   }
                   data-aos="fade-up"
                   data-aos-anchor="#techStack"
@@ -77,7 +77,7 @@ const index: FunctionComponent<indexProps> = props => {
             Mostly developed management systems, ordering applications and
             entertainment websites.
                   "
-                    icon={<StaticImage alt="Web" src="../../images/web.png" />}
+                    icon={<StaticImage alt="Web" src="../../../images/web.png" />}
                     data-aos="fade-up"
                     data-aos-anchor="#techStack"
                     data-aos-duration="800"
@@ -88,7 +88,7 @@ const index: FunctionComponent<indexProps> = props => {
                     className="bg-pink-500 my-8"
                     title="DevOPS"
                     description="Experience in AWS, Heroku, and Firebase."
-                    icon={<StaticImage alt="Web" src="../../images/aws.png" />}
+                    icon={<StaticImage  alt="Web" src="../../../images/aws.png" />}
                     data-aos="fade-up"
                     data-aos-anchor="#techStack"
                     data-aos-delay="400"

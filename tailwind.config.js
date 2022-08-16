@@ -18,6 +18,7 @@ module.exports = {
         neuroPink: `${colors.slate[900]} 6px 6px 11px, ${colors.slate[600]} -4px -4px 9px`,
         glowOrange: "0 0 10px " + colors.orange[400],
         glowPink: "0 0 10px " + colors.rose[400],
+        glowDanger: "0 0 10px " + colors.rose[600],
         glowSky: "0 0 10px " + colors.cyan[500],
         glowWhite: "0 0 8px " + colors.white,
         orangeButton: "20px 20px 60px #d57c33, -20px -20px 60px #ffa845;",
