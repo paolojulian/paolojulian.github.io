@@ -114,7 +114,6 @@ const index: FunctionComponent<indexProps> = props => {
             handleReset,
             handleChange,
             handleSubmit,
-            isValid,
             touched,
             errors,
             values,

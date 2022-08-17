@@ -49,7 +49,7 @@ const index: FunctionComponent<indexProps> = props => {
                 className="my-4 w-full lg:w-6/12 px-4 lg:mt-16"
               >
                 <TechCard
-                  className="bg-sky-500 bg-opacity-95 mt-8"
+                  className="bg-sky-500 bg-opacity-95 mt-8 shadow-glowSky"
                   title="Mobile"
                   description="
             Experienced in creating lifestyle, travel, utility and business
@@ -57,7 +57,10 @@ const index: FunctionComponent<indexProps> = props => {
             payment
                   "
                   icon={
-                    <StaticImage alt="Mobile" src="../../../images/mobile.png" />
+                    <StaticImage
+                      alt="Mobile"
+                      src="../../../images/mobile.png"
+                    />
                   }
                   data-aos="fade-up"
                   data-aos-anchor="#techStack"
@@ -71,13 +74,15 @@ const index: FunctionComponent<indexProps> = props => {
               >
                 <motion.div variants={enterFromBottomVariant()}>
                   <TechCard
-                    className="bg-orange-400"
+                    className="bg-orange-400 shadow-glowOrange"
                     title="Web"
                     description="
             Mostly developed management systems, ordering applications and
             entertainment websites.
                   "
-                    icon={<StaticImage alt="Web" src="../../../images/web.png" />}
+                    icon={
+                      <StaticImage alt="Web" src="../../../images/web.png" />
+                    }
                     data-aos="fade-up"
                     data-aos-anchor="#techStack"
                     data-aos-duration="800"
@@ -85,10 +90,12 @@ const index: FunctionComponent<indexProps> = props => {
                 </motion.div>
                 <motion.div variants={enterFromBottomVariant()}>
                   <TechCard
-                    className="bg-pink-500 my-8"
+                    className="bg-pink-500 my-8 shadow-glowPink"
                     title="DevOPS"
                     description="Experience in AWS, Heroku, and Firebase."
-                    icon={<StaticImage  alt="Web" src="../../../images/aws.png" />}
+                    icon={
+                      <StaticImage alt="Web" src="../../../images/aws.png" />
+                    }
                     data-aos="fade-up"
                     data-aos-anchor="#techStack"
                     data-aos-delay="400"

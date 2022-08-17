@@ -4,7 +4,8 @@ import React, { FunctionComponent, useCallback, useMemo } from "react"
 export interface FormikErrorAlertProps {}
 
 const FormikErrorAlert: FunctionComponent<FormikErrorAlertProps> = props => {
-  const { touched, isValid } = useFormikContext<any>()
+  const { touched, isValid, errors } = useFormikContext<any>()
+
   const showError = useMemo(() => {
     if (isValid) return false
 
