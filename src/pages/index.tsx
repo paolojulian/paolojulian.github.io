@@ -1,45 +1,42 @@
-// If you don't want to use TypeScript you can delete this file!
-import { graphql, PageProps } from "gatsby"
-import * as React from "react"
+import PortfolioPage from 'features/portfolio/components/Portfolio';
 
-import Seo from "../components/atoms/Seo"
-import About from "../components/organisms/About"
-import Contact from "../components/organisms/Contact"
-import Portfolio from "../components/organisms/Portfolio"
-import TechStack from "../components/organisms/TechStack"
-import Layout from "../components/templates/Layout/index"
+export default PortfolioPage;
 
-type DataProps = {
-  contentfulPortfolio: {
-    description: string
-  }
-  site: {
-    buildTime: string
-  }
-}
+// import React, { FunctionComponent } from 'react';
+// import MainLayout from '../components/layouts/Main';
+// import PostCard from '../components/molecules/PostCard';
+// import { Post } from '../lib/models';
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data }) => {
-  const { description } = data.contentfulPortfolio
-  return (
-    <Layout>
-      <Seo title="Paolo Vincent Julian" />
-      <About />
-      <TechStack />
-      <Portfolio />
-      <Contact />
-    </Layout>
-  )
-}
+// export type HomeProps = {
+//   preview?: boolean;
+//   data: Post[];
+// };
 
-export default UsingTypescript
+// const Home: FunctionComponent<HomeProps> = ({ data, preview }) => {
+//   return (
+//     <MainLayout preview={preview}>
+//       <>
+//         {data.map((post) => (
+//           <PostCard key={post.id} post={post} href='/posts/lorem-ipsum' />
+//         ))}
+//       </>
+//     </MainLayout>
+//   );
+// };
 
-export const query = graphql`
-  {
-    contentfulPortfolio {
-      description
-    }
-    site {
-      buildTime(formatString: "YYYY-MM-DD hh:mm a z")
-    }
-  }
-`
+// export async function getStaticProps() {
+//   // const response = await apiClient.get('/api/posts');
+//   // if (!response.ok) {
+//   //   throw new Error();
+//   // }
+
+//   return {
+//     redirect: {
+//       destination: '/portfolio',
+//       permanent: true,
+//     },
+//   };
+//   // return { props: { data: response.data } };
+// }
+
+// export default Home;

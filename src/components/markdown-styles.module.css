@@ -1,0 +1,42 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply mb-4 dark:text-gray-400;
+}
+
+.markdown strong {
+  @apply dark:text-white
+}
+
+.markdown a {
+  @apply text-blue-500 font-bold hover:underline underline-offset-4;
+}
+
+.markdown h2 {
+  @apply text-3xl font-bold mb-2 leading-snug;
+}
+.markdown h2:not(:first-child) {
+  @apply mt-12;
+}
+.markdown div[class='remark-highlight'] {
+  margin-top: 3rem;
+  width: 100%;
+  font-family: 'Source Code Pro';
+}
+
+.markdown pre[class*='language-'] {
+  @apply max-w-full overflow-x-auto;
+}
+/* 
+.markdown h2 {
+  @apply text-3xl mt-12 mb-4 leading-snug;
+}
+
+.markdown h3 {
+  @apply text-2xl mt-8 mb-4 leading-snug;
+} */

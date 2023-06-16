@@ -1,43 +1,63 @@
-const colors = require("tailwindcss/colors")
+const colors = require('tailwindcss/colors');
+
+const CUSTOM_COLORS = {
+  carnation: {
+    50: '#fef3f2',
+    100: '#ffe4e1',
+    200: '#ffcdc8',
+    300: '#ffaaa2',
+    400: '#fd786c',
+    500: '#f65d4f',
+    600: '#e32f1f',
+    700: '#bf2416',
+    800: '#9e2116',
+    900: '#832219',
+  },
+};
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: 'class',
+  content: ['./app/**/*.tsx', './src/**/*.tsx'],
   theme: {
-    fontFamily: {
-      body: ["sans-serif"],
-      porto: ["Porto"],
-      portica: ["Portica"],
-    },
     extend: {
-      animation: {
-        wavy: "wavy 2s ease-in-out infinite",
+      colors: {
+        bg: '#101331',
+        primary: colors.cyan,
+        gray: colors.neutral,
+        'accent-1': '#FAFAFA',
+        'accent-2': '#EAEAEA',
+        'accent-7': '#333',
+        lofi: {
+          yellow: '#FCE096',
+        },
+        success: '#0070f3',
+      },
+      backgroundImage: {
+        'pink-linear':
+          'linear-gradient(292.71deg, #FB7185 0%, #FDA4AF 231.55%);',
+      },
+      spacing: {
+        28: '7rem',
+      },
+      letterSpacing: {
+        tighter: '-.04em',
+      },
+      lineHeight: {
+        tight: 1.2,
+      },
+      fontSize: {
+        '5xl': '2.5rem',
+        '6xl': '2.75rem',
+        '7xl': '4.5rem',
+        '8xl': '6.25rem',
       },
       boxShadow: {
-        neuroDark: "20px 20px 60px #1a2332, -20px -20px 60px #232f44;",
-        neuroPink: `${colors.slate[900]} 6px 6px 11px, ${colors.slate[600]} -4px -4px 9px`,
-        glowOrange: "0 0 11px " + colors.orange[400],
-        glowPink: "0 0 11px " + colors.rose[400],
-        glowDanger: "0 0 11px " + colors.rose[600],
-        glowSky: "0 0 11px " + colors.cyan[500],
-        glowWhite: "0 0 8px " + colors.white,
-        orangeButton: "20px 20px 60px #d57c33, -20px -20px 60px #ffa845;",
-      },
-      colors: {
-        black: "#181a24",
-      },
-      dropShadow: {
-        glowWhite: "0 0 2px rgba(255,255,255,0.7)",
-        glowBlack: "0 0 5px rgba(0,0,0,0.45)",
-      },
-      keyframes: {
-        wavy: {
-          "0%": { transform: "translateY(0px)" },
-          "10%": { transform: "translateY(-20px)" },
-          "20%,100%": { transform: "translateY(0px)" },
-        },
+        sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
+        md: '0 8px 30px rgba(0, 0, 0, 0.12)',
+        glowPrimary: '0px 4px 35px 14px rgba(207, 151, 171, 0.25)',
       },
     },
   },
-  plugins: [],
-}
+  plugins: [require('@tailwindcss/line-clamp')],
+};
