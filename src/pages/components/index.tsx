@@ -9,7 +9,7 @@ export type ComponentsProps = {
   data: Post[];
 };
 
-const Components: FunctionComponent<ComponentsProps> = ({ data, preview }) => {
+const Components: FunctionComponent<ComponentsProps> = () => {
   return (
     <MainLayout>
       <div className=' w-full h-full'>
@@ -18,14 +18,5 @@ const Components: FunctionComponent<ComponentsProps> = ({ data, preview }) => {
     </MainLayout>
   );
 };
-
-export async function getServerSideProps() {
-  const response = await apiClient.get('/api/posts');
-  if (!response.ok) {
-    throw new Error();
-  }
-
-  return { props: { data: response.data } };
-}
 
 export default Components;
