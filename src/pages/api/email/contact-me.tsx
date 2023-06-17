@@ -4,7 +4,6 @@ import { NextApiHandler } from 'next';
 import nodemailer from 'nodemailer';
 
 const handler: NextApiHandler = (req, res) => {
-  console.log({ body: req.body });
   if (!req.body?.email || !req.body?.name || !req.body?.message) {
     return res.status(400).json({ message: 'Form is incomplete' });
   }
