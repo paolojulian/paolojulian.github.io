@@ -1,0 +1,12 @@
+.container {
+  perspective: 100px;
+}
+
+.image {
+  transition: transform 200ms;
+  transform-origin: center center;
+}
+
+.container:hover .image {
+  transform: translateZ(10px);
+}

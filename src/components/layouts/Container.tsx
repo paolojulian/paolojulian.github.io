@@ -6,7 +6,7 @@ export type ContainerProps = {
 
 const Container: FunctionComponent<ContainerProps> = ({ children }) => {
   return (
-    <div className='mx-auto max-w-screen-xl w-full px-2 md:px-6 lg:px-12 xl:px-0'>
+    <div className='mx-auto max-w-screen-lg w-full px-6 lg:px-12 xl:px-0'>
       {children}
     </div>
   );

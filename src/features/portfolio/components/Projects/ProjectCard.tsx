@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import React, { FunctionComponent } from 'react';
+import styles from './ProjectCard.module.scss';
 
 type ProjectCardTypes = 'desktop' | 'mobile';
 
@@ -22,10 +23,15 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
 }) => {
   return (
     <Stack
-      className={classNames('w-[300px] h-[380px]', 'relative', 'space-y-4')}
+      className={classNames('w-[300px]', 'relative', 'space-y-4', 'mx-[20px]', styles.container)}
     >
       {/* Picture */}
-      <Stack className='rounded-2xl border border-slate-400 overflow-hidden'>
+      <Stack
+        className={classNames(
+          'rounded-2xl border border-slate-400 overflow-hidden test',
+          styles.image
+        )}
+      >
         <Row className='border-b border-slate-400 items-center px-3 py-2'>
           <div className='w-4 h-4 rounded-full bg-slate-400'></div>
         </Row>
@@ -70,7 +76,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
       </Stack>
 
       {/* Icons */}
-      <Row>{Icons}</Row>
+      {/* <Row>{Icons}</Row> */}
     </Stack>
     // <div
     //   className={classNames(
