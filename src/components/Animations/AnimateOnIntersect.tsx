@@ -6,7 +6,8 @@ type AnimateOnIntersectTypes =
   | 'fadeFromDown'
   | 'fadeFromRight'
   | 'flip'
-  | 'popOut';
+  | 'popOut'
+  | 'none';
 
 const optionsPerType: Record<
   AnimateOnIntersectTypes,
@@ -37,6 +38,11 @@ const optionsPerType: Record<
     rootMargin: '0px 0px -100px 0px',
     threshold: 1.0,
   },
+  none: {
+    root: null,
+    rootMargin: '0px 0px 100px 0px',
+    threshold: 1.0,
+  },
 };
 
 const initialPositionPerType: Record<
@@ -62,6 +68,10 @@ const initialPositionPerType: Record<
   popOut: {
     from: 'transition opacity-0 scale-0',
     to: 'opacity-1 scale-1',
+  },
+  none: {
+    from: '',
+    to: '',
   },
 };
 
