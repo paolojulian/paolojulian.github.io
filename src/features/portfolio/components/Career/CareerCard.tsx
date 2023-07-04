@@ -2,7 +2,9 @@ import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
 import React, { FunctionComponent } from 'react';
 import CareerCardHeader from './CareerCardHeader';
-import AnimateOnIntersect from 'components/Animations/AnimateOnIntersect';
+import AnimateOnIntersect, {
+  AnimateOnIntersectContext,
+} from 'components/Animations/AnimateOnIntersect';
 import CareerTechCard from './CareerTechCard';
 import Image from 'next/image';
 

@@ -13,7 +13,7 @@ export type CareerProps = {
 
 const Career: FunctionComponent<CareerProps> = () => {
   return (
-    <section id='career' className='my-32 relative'>
+    <section id='career' className='md:my-32 relative'>
       <Container>
         <Stack className='bg-transparent text-white py-32 space-y-24 relative z-20'>
           <AnimateOnIntersect>
@@ -138,9 +138,12 @@ const Career: FunctionComponent<CareerProps> = () => {
       </Container>
       <Image
         draggable={false}
-        className='absolute -bottom-60 -right-3/4 z-0'
+        className='hidden sm:block absolute -bottom-60 -right-3/4 z-0'
         src='/assets/portfolio/Galaxy.jpg'
         alt='Galaxy'
+        style={{
+          objectFit: 'cover',
+        }}
         quality={90}
         width={1580}
         height={1024}

@@ -45,7 +45,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
                     {/* Content */}
                     <Row className='flex-1 h-full'>
                       {/* Sidebar */}
-                      <Stack className='w-[250px] h-auto border-r border-slate-500 p-5 animate-pulse justify-between'>
+                      <Stack className='w-[250px] hidden md:flex h-auto border-r border-slate-500 p-5 animate-pulse justify-between'>
                         <Stack className='space-y-4'>
                           &nbsp;
                           <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-full h-[27px] rounded-full'></div>
@@ -59,7 +59,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
                         <div className='bg-gradient-to-br from-slate-600 to-slate-500 w-[calc(100%-0rem)] h-[40px]'></div>
                       </Stack>
                       {/* Contact */}
-                      <Stack className='flex-1 h-full p-14 space-y-6'>
+                      <Stack className='flex-1 h-full p-4 md:p-14 space-y-6'>
                         <Stack>
                           <h3 className='font-bold text-2xl text-lofi-yellow'>
                             CONTACT
@@ -79,7 +79,7 @@ const Contact: FunctionComponent<ContactProps> = () => {
                 </div>
                 <div className='w-0.5 h-[75px] bg-slate-500' />
                 <div className='w-[calc(100%-20rem)] max-w-screen-lg border border-t-slate-500' />
-                <h4 className='text-slate-500 text-base font-medium my-4'>
+                <h4 className='text-slate-500 text-base font-medium my-4 text-center'>
                   Copyright © 2017-2023 Paolo Vincent Julian. All rights
                   reserved.
                 </h4>

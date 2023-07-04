@@ -50,7 +50,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
         <form onSubmit={handleSubmit} method='POST' noValidate>
           <div className='w-full'>
             <Stack className='space-y-2'>
-              <Row className='space-x-2 w-full'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                 <TextInput
                   onChange={(e) => setFieldValue('name', e.target.value)}
                   error={!!touched.name && errors.name}
@@ -60,7 +60,6 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
                   placeholder='Johny Sins?'
                   value={values.name}
                   theme='outlined'
-                  rounded='top-left'
                 />
                 <TextInput
                   onChange={(e) => setFieldValue('email', e.target.value)}
@@ -71,10 +70,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
                   placeholder='email@email.com'
                   value={values.email}
                   theme='outlined'
-                  rounded='top-right'
                 />
-              </Row>
-              <Row className='space-x-2 w-full'>
                 <TextInput
                   onChange={(e) => setFieldValue('mobile', e.target.value)}
                   error={!!touched.mobile && errors.mobile}
@@ -95,7 +91,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({
                   value={values.subject}
                   theme='outlined'
                 />
-              </Row>
+              </div>
               <TextAreaInput
                 onChange={(e) => setFieldValue('message', e.target.value)}
                 error={!!touched.message && errors.message}

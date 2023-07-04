@@ -52,7 +52,7 @@ const initialPositionPerType: Record<
     to: 'opacity-1 translate-y-0',
   },
   fadeFromRight: {
-    from: 'transition opacity-0 -translate-x-24',
+    from: 'transition opacity-0 -translate-x-4 md:-translate-x-24',
     to: 'opacity-1 translate-x-0',
   },
   flip: {

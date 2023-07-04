@@ -60,7 +60,7 @@ const Navbar: FunctionComponent<NavbarProps> = (props) => {
     <Stack className='items-center justify-center sticky top-0 inset-x-0 py-4 bg-bg z-40'>
       <Container>
         <Row className='justify-start items-center w-full'>
-          <Row className='space-x-7'>
+          <Row className='space-x-3 md:space-x-7'>
             <NavbarItem name='Home' href='#home' isActive={isActive('')} />
             <NavbarItem
               name='About'

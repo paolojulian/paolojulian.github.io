@@ -11,12 +11,14 @@ import React, { FunctionComponent } from 'react';
 import TextHighlight from '../common/TextHighlight';
 import AboutSectionHeader from './SectionHeader';
 import Container from 'components/layouts/Container';
+import { Router, useRouter } from 'next/router';
 
 export type AboutProps = {
   // No Props
 };
 
 const About: FunctionComponent<AboutProps> = () => {
+  const router = useRouter();
   return (
     <section id='about'>
       <Stack className='items-center bg-transparent text-white py-32 md:py-60 space-y-24'>
@@ -77,7 +79,16 @@ const About: FunctionComponent<AboutProps> = () => {
               </Stack>
 
               <AnimateOnIntersect>
-                <AppButton block={false} rounded='none' theme='borders'>
+                <AppButton
+                  block={false}
+                  rounded='none'
+                  theme='borders'
+                  onClick={() =>
+                    router.push('', {
+                      hash: '#contact',
+                    })
+                  }
+                >
                   <span className='font-extrabold text-xl'>HIRE ME</span>
                 </AppButton>
               </AnimateOnIntersect>

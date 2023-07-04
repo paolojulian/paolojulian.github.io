@@ -40,7 +40,9 @@ const Menu: FunctionComponent<MenuProps> = (props) => {
         <a href={'https://paolojulian.github.io'} target='__blank'>
           <MenuItem Icon={<BookIcon />} label='Portfolio' />
         </a>
-        <MenuItem Icon={<ListIcon />} label='Components'
+        <MenuItem
+          Icon={<ListIcon />}
+          label='Components'
           onClick={() => router.push('/components')}
         />
         <MenuItem
