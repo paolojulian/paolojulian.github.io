@@ -19,11 +19,11 @@ export type AboutProps = {
 const About: FunctionComponent<AboutProps> = () => {
   return (
     <section id='about'>
-      <Stack className='items-center bg-transparent text-white py-60 space-y-24'>
+      <Stack className='items-center bg-transparent text-white py-32 md:py-60 space-y-24'>
         <Container>
-          <Row className='items-center space-x-8'>
+          <Row className='items-center space-x-0 md:space-x-8'>
             <AnimateOnIntersect type='fadeFromRight'>
-              <Stack className='justify-center items-center space-y-4'>
+              <Stack className='justify-center items-center space-y-4 hidden md:flex'>
                 <span className='writing-vertical text-slate-400'>
                   Follow me
                 </span>
@@ -63,7 +63,7 @@ const About: FunctionComponent<AboutProps> = () => {
                   </AnimateOnIntersectContext.Consumer>
                 </AnimateOnIntersect>
                 <AnimateOnIntersect>
-                  <p className='text-slate-500 text-left text-2xl'>
+                  <p className='text-slate-500 text-left text-xl md:text-2xl'>
                     Experienced since <TextHighlight>2017</TextHighlight>, I am
                     a<TextHighlight> full-stack developer</TextHighlight> who
                     specialize in{' '}

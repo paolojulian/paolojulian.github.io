@@ -28,7 +28,7 @@ const SectionHeader: FunctionComponent<SectionHeaderProps> = ({
     <Stack>
       <h4
         className={classNames(
-          'font-extrabold tracking-widest text-xl',
+          'font-extrabold tracking-widest text-lg md:text-xl',
           titleThemeColor[theme]
         )}
       >
@@ -36,7 +36,7 @@ const SectionHeader: FunctionComponent<SectionHeaderProps> = ({
       </h4>
       <h2
         className={classNames(
-          'font-bold tracking-wide text-4xl',
+          'font-bold tracking-wide text-2xl md:text-4xl',
           descriptionThemeColor[theme]
         )}
       >

@@ -7,6 +7,9 @@
   transform-origin: center center;
 }
 
-.container:hover .image {
-  transform: translateZ(10px);
+/** Web */
+@media screen and (min-width: 1024px) {
+  .container:hover .image {
+    transform: translateZ(10px);
+  }
 }

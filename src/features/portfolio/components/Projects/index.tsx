@@ -17,7 +17,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
     <>
       <section
         id='portfolio'
-        className='items-center bg-transparent text-white py-32 space-y-24 relative'
+        className='items-center bg-transparent text-white py-16 md:py-32 space-y-24 relative'
       >
         <Container>
           <Stack className='space-y-4'>
@@ -29,7 +29,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
             </AnimateOnIntersect>
           </Stack>
         </Container>
-        <div className='absolute -top-20 left-0 h-full w-auto'>
+        <div className='absolute -top-20 left-0 h-full w-auto hidden md:block'>
           <Image
             draggable={false}
             src={'/assets/portfolio/projects/Background.png'}
@@ -37,6 +37,9 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
             className='select-none'
             style={{
               objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              backgroundPosition: 'center center'
             }}
             width={1727}
             height={1086}
@@ -46,9 +49,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
         <AnimateOnIntersect type='fade'>
           <DraggableHorizontalScroll>
             <Stack className='px-6 lg:px-12 xl:px-28 z-50 py-5'>
-              <Row
-                className='w-fit text-white items-center'
-              >
+              <Row className='w-fit text-white items-center'>
                 {/* Election App */}
                 <ProjectCard
                   title='Election App'

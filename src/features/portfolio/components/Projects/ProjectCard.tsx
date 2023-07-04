@@ -23,7 +23,13 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({
 }) => {
   return (
     <Stack
-      className={classNames('w-[300px]', 'relative', 'space-y-4', 'mx-[20px]', styles.container)}
+      className={classNames(
+        'w-[300px]',
+        'relative',
+        'space-y-4',
+        'mx-[20px]',
+        styles.container
+      )}
     >
       {/* Picture */}
       <Stack
