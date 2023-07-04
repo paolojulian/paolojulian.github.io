@@ -60,7 +60,32 @@ const About: FunctionComponent<AboutProps> = () => {
                 <AnimateOnIntersect>
                   <AnimateOnIntersectContext.Consumer>
                     {({ isInView }) => (
-                      <AboutSectionHeader mounted={!!isInView} />
+                      <Stack className='space-y-2'>
+                        <AboutSectionHeader mounted={!!isInView} />
+                        <Row className='space-x-2 flex md:hidden'>
+                          <a
+                            href='https://www.facebook.com/profile.php?id=100078321445396'
+                            target='_blank'
+                            className='focus:scale-[0.99] transition-transform'
+                          >
+                            <FacebookIcon />
+                          </a>
+                          <a
+                            href='https://github.com/paolojulian'
+                            target='_blank'
+                            className='focus:scale-[0.99] transition-transform'
+                          >
+                            <GithubIcon />
+                          </a>
+                          <a
+                            href='https://www.linkedin.com/in/pipz/'
+                            target='_blank'
+                            className='focus:scale-[0.99] transition-transform'
+                          >
+                            <LinkedInIcon />
+                          </a>
+                        </Row>
+                      </Stack>
                     )}
                   </AnimateOnIntersectContext.Consumer>
                 </AnimateOnIntersect>
