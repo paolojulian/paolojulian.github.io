@@ -5,6 +5,7 @@ import Career from './Career';
 import Contact from './Contact';
 import Projects from './Projects';
 import Navbar from './Navbar';
+import PortfolioLayout from '../layouts';
 
 export type PortfolioPageProps = {
   // No Props
@@ -12,29 +13,31 @@ export type PortfolioPageProps = {
 
 const PortfolioPage: FunctionComponent<PortfolioPageProps> = () => {
   return (
-    <div
-      className='w-screen overflow-y-auto overflow-x-hidden h-screen'
-      style={{
-        scrollBehavior: 'smooth',
-        perspective: '10px',
-      }}
-    >
-      <Hero />
+    <PortfolioLayout>
+      <div
+        className='w-screen overflow-y-auto overflow-x-hidden h-screen'
+        style={{
+          scrollBehavior: 'smooth',
+          perspective: '10px',
+        }}
+      >
+        <Hero />
 
-      <main className='bg-bg z-10'>
-        <Navbar />
-        <About />
-        <Projects />
-        <Career />
-        <Contact
-          name='Paolo Vincent M. Julian'
-          course='Software Engineer'
-          email='paolojulian.personal@gmail.com'
-          address='#100 Upper Dagsian, Baguio City'
-          mobileNo='+639279488654'
-        />
-      </main>
-    </div>
+        <main className='bg-bg z-10'>
+          <Navbar />
+          <About />
+          <Projects />
+          <Career />
+          <Contact
+            name='Paolo Vincent M. Julian'
+            course='Software Engineer'
+            email='paolojulian.personal@gmail.com'
+            address='#100 Upper Dagsian, Baguio City'
+            mobileNo='+639279488654'
+          />
+        </main>
+      </div>
+    </PortfolioLayout>
   );
 };
 

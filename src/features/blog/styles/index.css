@@ -30,7 +30,7 @@
 }
 
 html {
-  /* font-family: 'Montserrat', 'Source Code Pro', sans-serif; */
+  font-family: 'Montserrat', 'Source Code Pro', sans-serif;
   @apply dark:text-white;
   overflow-x: hidden;
 }
@@ -45,8 +45,4 @@ html {
 
 .hidden-scrollbar::-webkit-scrollbar {
   display: none;
-}
-
-.writing-vertical {
-  writing-mode: vertical-lr;
 }
