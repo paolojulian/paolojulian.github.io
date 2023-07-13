@@ -6,13 +6,17 @@ import BlogPost from '../common/blog-post';
 import { IProps } from 'pages/blogs/[id]';
 
 export type BlogDetailsProps = {
-  postData: {
-    id: string;
-    contentHTML: string;
+  content: React.ReactNode;
+  data: {
+    title?: string;
+    publish_date?: string;
   };
 };
 
-const BlogDetails: FunctionComponent<IProps> = ({ postData }) => {
+const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
+  data,
+  content,
+}) => {
   const [testThis, setTestThis] = useState(true);
   return (
     <BlogLayout>
@@ -29,13 +33,13 @@ const BlogDetails: FunctionComponent<IProps> = ({ postData }) => {
             <Stack>
               {/* Header */}
               <Stack className='h-[300px] bg-gray-100 p-8 justify-center space-y-4'>
-                <h1 className='font-bold text-6xl'>{postData.title}</h1>
+                <h1 className='font-bold text-6xl'>{data.title}</h1>
                 <h3 className='italic text-slate-500'>
-                  Published on {postData.publish_date}
+                  Published on {data.publish_date}
                 </h3>
               </Stack>
               <div className='p-4 md:p-8'>
-                <BlogPost content={postData.contentHTML} />
+                <BlogPost content={content} />
               </div>
             </Stack>
           </div>

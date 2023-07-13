@@ -1,6 +1,22 @@
 const path = require('path');
 
-module.exports = {
+// next.config.js
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    providerImportSource: '@mdx-js/react',
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Configure pageExtensions to include md and mdx
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  // Optionally, add any other Next.js config below
+  reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -21,3 +37,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = withMDX(nextConfig);
