@@ -38,9 +38,15 @@ const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
                   Published on {data.publish_date}
                 </h3>
               </Stack>
-              <div className='p-4 md:p-8'>
+              <div className='px-4 md:px-8 md:mb-32'>
                 <BlogPost content={content} />
               </div>
+              <footer className='my-12'>
+                <h4 className='text-gray-600 text-base font-medium my-4 text-center'>
+                  Copyright © 2017-2023 Paolo Vincent Julian. All rights
+                  reserved.
+                </h4>
+              </footer>
             </Stack>
           </div>
           <div className='w-[300px] h-screen sticky top-0 hidden xl:block'>
@@ -64,10 +70,10 @@ const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
                 <Stack className='space-y-8'>
                   <Row className='items-center'>
                     <div>
-                      <h3 className='line-clamp-1 text-slate-800 font-bold'>
+                      <h3 className='line-clamp-1 text-gray-800 font-bold'>
                         Black Twitter is Irreplaceable
                       </h3>
-                      <p className='line-clamp-2 text-sm text-slate-600'>
+                      <p className='line-clamp-2 text-sm text-gray-600'>
                         Occaecat ipsum ipsum voluptate consequat minim Lorem do.
                         Tempor nulla officia ipsum labore irure qui dolor ad et
                         quis in. Voluptate consequat cupidatat labore non mollit
@@ -83,10 +89,10 @@ const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
                   </Row>
                   <Row className='items-center'>
                     <div>
-                      <h3 className='line-clamp-1 text-slate-800 font-bold'>
+                      <h3 className='line-clamp-1 text-gray-800 font-bold'>
                         Black Twitter is Irreplaceable
                       </h3>
-                      <p className='line-clamp-2 text-sm text-slate-600'>
+                      <p className='line-clamp-2 text-sm text-gray-600'>
                         Occaecat ipsum ipsum voluptate consequat minim Lorem do.
                         Tempor nulla officia ipsum labore irure qui dolor ad et
                         quis in. Voluptate consequat cupidatat labore non mollit

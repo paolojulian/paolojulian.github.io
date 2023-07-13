@@ -15,14 +15,12 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ content }) => {
     <MDXProvider
       components={{
         h2: ({ children }) => (
-          <h2 className='text-gray-800 font-bold text-xl mt-8 mb-2'>
+          <h2 className='text-gray-800 font-bold text-xl mb-2 mt-4 md:mt-8'>
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className='text-gray-800 font-semibold mb-2'>
-            {children}
-          </h3>
+          <h3 className='text-gray-800 font-semibold mb-2'>{children}</h3>
         ),
         p: ({ children }) => <p className='text-gray-700 mb-2'>{children}</p>,
         pre: ({ children }) => <>{children}</>,
