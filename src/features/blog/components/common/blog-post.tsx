@@ -10,10 +10,6 @@ export type BlogPostProps = {
 
 const BlogPost: FunctionComponent<BlogPostProps> = ({ content }) => {
   return (
-    // <div
-    //   className={styles.container}
-    //   dangerouslySetInnerHTML={{ __html: content }}
-    // ></div>
     <MDXProvider
       components={{
         h2: ({ children }) => (

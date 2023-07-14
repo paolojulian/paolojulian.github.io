@@ -35,7 +35,7 @@ const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
           <div className='px-4 md:px-8 md:mb-32'>
             <BlogPost content={content} />
           </div>
-          <footer className='my-12'>
+          <footer className='mt-12 mb-4 px-4 md:px-8'>
             <h4 className='text-gray-600 text-base font-medium my-4 text-center'>
               Copyright © 2017-{currentYear} Paolo Vincent Julian. All rights
               reserved.

@@ -2,6 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { Manrope } from '@next/font/google';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
+import IconButton from 'components/Buttons/IconButton';
+import HomeIcon from '../components/icons/home-icon';
+import BloggerIcon from '../components/icons/blogger-icon';
+import AppsIcon from '../components/icons/apps-icon';
+import NavIconButton from '../components/common/nav-icon-btn';
 
 const font = Manrope({ subsets: ['latin'] });
 
@@ -16,9 +21,15 @@ const BlogLayout: FunctionComponent<BlogLayoutProps> = ({ children }) => {
         <Row>
           <nav className='sticky top-0 h-screen border-r border-gray-200 p-2 hidden md:block'>
             <Stack className='justify-center space-y-2 h-full'>
-              <div className='w-8 h-8 bg-gray-200 rounded-full'></div>
-              <div className='w-8 h-8 bg-gray-200 rounded-full'></div>
-              <div className='w-8 h-8 bg-gray-200 rounded-full'></div>
+              <NavIconButton name='Home'>
+                <HomeIcon className='text-gray-800' />
+              </NavIconButton>
+              <NavIconButton name='Blogs'>
+                <BloggerIcon className='text-gray-800' />
+              </NavIconButton>
+              <NavIconButton name='Components'>
+                <AppsIcon className='text-gray-600' />
+              </NavIconButton>
             </Stack>
           </nav>
           <div className='flex-1'>{children}</div>
