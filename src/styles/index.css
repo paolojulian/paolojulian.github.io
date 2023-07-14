@@ -31,7 +31,6 @@
 }
 
 html {
-  font-family: 'Montserrat' !important;
   @apply dark:text-white;
   overflow-x: hidden;
 }

@@ -4,6 +4,7 @@ import BlogPost from '../common/blog-post';
 import { IProps } from 'pages/blogs/[id]';
 import Stack from 'layouts/Stack';
 import Head from 'next/head';
+import dayjs from 'dayjs';
 
 interface BlogDetailsProps {
   data: IProps['postData'];
@@ -14,6 +15,8 @@ const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
   data,
   content,
 }) => {
+  const currentYear = dayjs().year();
+
   return (
     <>
       <Head>
@@ -34,7 +37,8 @@ const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
           </div>
           <footer className='my-12'>
             <h4 className='text-gray-600 text-base font-medium my-4 text-center'>
-              Copyright © 2017-2023 Paolo Vincent Julian. All rights reserved.
+              Copyright © 2017-{currentYear} Paolo Vincent Julian. All rights
+              reserved.
             </h4>
           </footer>
         </Stack>
