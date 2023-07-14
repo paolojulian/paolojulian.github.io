@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import CodeBlock from './code-block';
+import Heading from './typography/heading';
+import Paragraph from './typography/paragraph';
 
 export type BlogPostProps = {
   content: React.ReactNode;
@@ -15,14 +17,12 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ content }) => {
     <MDXProvider
       components={{
         h2: ({ children }) => (
-          <h2 className='text-gray-800 font-bold text-xl mb-2 mt-4 md:mt-8'>
-            {children}
-          </h2>
+          <Heading.H2 className='mb-2 mt-4 md:mt-8'>{children}</Heading.H2>
         ),
         h3: ({ children }) => (
-          <h3 className='text-gray-800 font-semibold mb-2'>{children}</h3>
+          <Heading.H3 className='mb-2'>{children}</Heading.H3>
         ),
-        p: ({ children }) => <p className='text-gray-700 mb-2'>{children}</p>,
+        p: ({ children }) => <Paragraph className='mb-2'>{children}</Paragraph>,
         pre: ({ children }) => <>{children}</>,
         code: ({ children, className }) => (
           <CodeBlock className={className}>{children}</CodeBlock>

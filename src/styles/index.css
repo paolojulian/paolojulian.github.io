@@ -31,7 +31,7 @@
 }
 
 html {
-  /* font-family: 'Montserrat', 'Source Code Pro', sans-serif; */
+  font-family: 'Montserrat' !important;
   @apply dark:text-white;
   overflow-x: hidden;
 }
