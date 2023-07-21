@@ -5,35 +5,28 @@ import { IProps } from 'pages/blogs/[id]';
 import Stack from 'layouts/Stack';
 import Head from 'next/head';
 import dayjs from 'dayjs';
+import AppTime from 'components/UI/AppTime';
 
-interface BlogDetailsProps {
-  data: IProps['postData'];
-  content: React.ReactNode;
-}
-
-const BlogDetails: FunctionComponent<BlogDetailsProps> = ({
-  data,
-  content,
-}) => {
+const BlogDetails: FunctionComponent<IProps> = ({ blogPost }) => {
   const currentYear = dayjs().year();
 
   return (
     <>
       <Head>
-        <title>{data.title} | Pipz</title>
+        {/* <title>{data.title}</title> */}
+        <title>Test</title>
       </Head>
       <BlogLayout>
         <Stack>
           {/* Header */}
           <Stack className='h-[300px] bg-gray-100 p-8 justify-center'>
-            <h1 className='font-bold text-6xl'>{data.title}</h1>
+            <h1 className='font-bold text-6xl'>{blogPost.title}</h1>
             <p className='italic text-slate-500'>
-              Published on{' '}
-              <time dateTime={data.publish_date}>{data.publish_date}</time>
+              Published on <AppTime dateTime={blogPost.sys.publishedAt} />
             </p>
           </Stack>
           <div className='px-4 md:px-8 md:mb-32'>
-            <BlogPost content={content} />
+            <BlogPost content={blogPost.content} />
           </div>
           <footer className='mt-12 mb-4 px-4 md:px-8'>
             <h4 className='text-gray-600 text-base font-medium my-4 text-center'>

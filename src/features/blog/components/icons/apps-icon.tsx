@@ -14,9 +14,9 @@ const AppsIcon: FunctionComponent<React.HtmlHTMLAttributes<SVGElement>> = (
     >
       <g
         stroke='currentColor'
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        stroke-width='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='2'
       >
         <rect height='9' rx='1' width='9' x='3' y='3' />
         <rect height='5' rx='.5' width='5' x='16' y='16' />

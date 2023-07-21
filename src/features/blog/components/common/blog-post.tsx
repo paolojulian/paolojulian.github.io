@@ -3,14 +3,15 @@ import { MDXProvider } from '@mdx-js/react';
 import CodeBlock from './code-block';
 import Heading from './typography/heading';
 import Paragraph from './typography/paragraph';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 export type BlogPostProps = {
-  content: React.ReactNode;
+  content: string;
 };
 
 const BlogPost: FunctionComponent<BlogPostProps> = ({ content }) => {
   return (
-    <MDXProvider
+    <ReactMarkdown
       components={{
         h2: ({ children }) => (
           <Heading.H2 className='mb-2 mt-4 md:mt-8'>{children}</Heading.H2>
@@ -25,8 +26,8 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ content }) => {
         ),
       }}
     >
-      <div>{content}</div>
-    </MDXProvider>
+      {content}
+    </ReactMarkdown>
   );
 };
 

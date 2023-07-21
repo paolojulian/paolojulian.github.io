@@ -1,17 +1,12 @@
+import { getBlogPostBySlug } from 'features/blog/api/posts';
 import BlogDetails from 'features/blog/components/Detail';
-import { getAllPostIds, getPostData } from 'features/blog/lib/posts';
+import { getAllPostIds } from 'features/blog/lib/posts';
+import { BlogPostCollection } from 'features/blog/types/contentful';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 export default BlogDetails;
-
 export interface IProps {
-  postData: {
-    id: string;
-    contentHTML: string;
-    title?: string;
-    author?: string;
-    publish_date?: string;
-  };
+  blogPost: BlogPostCollection;
 }
 
 export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
@@ -24,11 +19,15 @@ export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
     };
   }
 
-  const postData = await getPostData(params.id);
+  const blogPost = await getBlogPostBySlug('lorem-ipsum');
+  let data = blogPost.data;
+  if (blogPost.ok === false) {
+    data = null;
+  }
 
   return {
     props: {
-      postData,
+      blogPost: data,
     },
   };
 };
