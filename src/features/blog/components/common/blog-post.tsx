@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { MDXProvider } from '@mdx-js/react';
 import CodeBlock from './code-block';
 import Heading from './typography/heading';
 import Paragraph from './typography/paragraph';
