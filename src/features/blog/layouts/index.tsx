@@ -7,16 +7,24 @@ import HomeIcon from '../components/icons/home-icon';
 import BloggerIcon from '../components/icons/blogger-icon';
 import AppsIcon from '../components/icons/apps-icon';
 import NavIconButton from '../components/common/nav-icon-btn';
+import { IProps } from 'pages/blogs/[id]';
+import AppTime from 'components/UI/AppTime';
+import classNames from 'classnames';
+import Link from 'next/link';
 
 const font = Manrope({ subsets: ['latin'] });
 
 export type BlogLayoutProps = {
   children: React.ReactNode;
+  latestBlogPosts: IProps['latestBlogPosts'];
 };
 
-const BlogLayout: FunctionComponent<BlogLayoutProps> = ({ children }) => {
+const BlogLayout: FunctionComponent<BlogLayoutProps> = ({
+  children,
+  latestBlogPosts,
+}) => {
   return (
-    <div className={font.className}>
+    <div className={classNames('bg-[#ece8e1]-back', font.className)}>
       <div className='max-w-screen-xl mx-auto'>
         <Row>
           <nav className='sticky top-0 h-screen border-r border-gray-200 p-2 hidden md:block'>
@@ -53,44 +61,23 @@ const BlogLayout: FunctionComponent<BlogLayoutProps> = ({ children }) => {
                 </Row>
 
                 <Stack className='space-y-8'>
-                  <Row className='items-center'>
-                    <div>
-                      <h3 className='line-clamp-1 text-gray-800 font-bold'>
-                        Black Twitter is Irreplaceable
-                      </h3>
-                      <p className='line-clamp-2 text-sm text-gray-600'>
-                        Occaecat ipsum ipsum voluptate consequat minim Lorem do.
-                        Tempor nulla officia ipsum labore irure qui dolor ad et
-                        quis in. Voluptate consequat cupidatat labore non mollit
-                        voluptate consequat officia nulla amet ipsum incididunt
-                        consectetur esse. Dolore irure pariatur magna esse dolor
-                        et sit commodo excepteur ad incididunt nulla dolore.
-                        Laborum magna id voluptate amet.
-                      </p>
-                      <span className='text-xs text-slate-500'>
-                        11-22-2022 08:00 AM 5 mins read
-                      </span>
-                    </div>
-                  </Row>
-                  <Row className='items-center'>
-                    <div>
-                      <h3 className='line-clamp-1 text-gray-800 font-bold'>
-                        Black Twitter is Irreplaceable
-                      </h3>
-                      <p className='line-clamp-2 text-sm text-gray-600'>
-                        Occaecat ipsum ipsum voluptate consequat minim Lorem do.
-                        Tempor nulla officia ipsum labore irure qui dolor ad et
-                        quis in. Voluptate consequat cupidatat labore non mollit
-                        voluptate consequat officia nulla amet ipsum incididunt
-                        consectetur esse. Dolore irure pariatur magna esse dolor
-                        et sit commodo excepteur ad incididunt nulla dolore.
-                        Laborum magna id voluptate amet.
-                      </p>
-                      <span className='text-xs text-slate-500'>
-                        11-22-2022 08:00 AM 5 mins read
-                      </span>
-                    </div>
-                  </Row>
+                  {latestBlogPosts.map((blogPost) => (
+                    <Link href={`/blogs/${blogPost.slug}`}>
+                      <Row className='items-center'>
+                        <div>
+                          <h3 className='line-clamp-1 text-gray-800 font-bold'>
+                            {blogPost.title}
+                          </h3>
+                          <p className='line-clamp-2 text-sm text-gray-600'>
+                            {blogPost.description}
+                          </p>
+                          <span className='text-xs text-slate-500'>
+                            <AppTime dateTime={blogPost.sys.publishedAt} />
+                          </span>
+                        </div>
+                      </Row>
+                    </Link>
+                  ))}
                 </Stack>
               </Stack>
             </Stack>

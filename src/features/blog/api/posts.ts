@@ -1,20 +1,56 @@
 import apolloClient from "lib/graphql";
 import { gql } from "@apollo/client";
-import contentfulClient from "../lib/contentful";
+import { BlogPostCollection } from "../types/contentful";
+import { APIResponse, IAPIResponse } from "utils/api";
 
-export async function getBlogPosts() {
-  const entries = await contentfulClient.getEntries({
-    content_type: 'blogPost'
+export async function getBlogPostSlugs(): Promise<IAPIResponse<BlogPostCollection[]>> {
+  const entries = await apolloClient.query({
+    query: gql`
+      query GetBlogPostSlugs {
+        blogPostCollection {
+            items {
+              slug
+            }
+        }
+      }
+    `
   })
 
-  return {
-    ok: true,
-    data: entries.items
-    // }
+  return APIResponse(true, entries.data.blogPostCollection.items)
+}
+
+export async function getLatestBlogPosts(limit = 5): Promise<IAPIResponse<BlogPostCollection[]>> {
+  try {
+
+    const entries = await apolloClient.query({
+      query: gql`
+      query GetLatestBlogPosts($limit: Int!) {
+        blogPostCollection(limit: $limit) {
+            items {
+              title
+              content
+              description
+              slug
+              sys {
+                publishedAt
+              }
+            }
+        }
+      }
+    `,
+      variables: {
+        limit
+      }
+    })
+
+    return APIResponse(true, entries.data.blogPostCollection.items);
+  } catch (e) {
+    console.error(JSON.stringify(e))
+    throw e
   }
 }
 
-export async function getBlogPostBySlug(slug: string) {
+export async function getBlogPostBySlug(slug: string): Promise<IAPIResponse<BlogPostCollection, any>> {
   try {
     const response = await apolloClient.query({
       query: gql`
@@ -23,6 +59,8 @@ export async function getBlogPostBySlug(slug: string) {
             items {
               title
               content
+              description
+              slug
               sys {
                 publishedAt
               }
@@ -36,21 +74,12 @@ export async function getBlogPostBySlug(slug: string) {
     })
 
     if (response.data.blogPostCollection.items.length === 0) {
-      return {
-        ok: false,
-        error: 'not-found'
-      }
+      return APIResponse(false, null, 'not-found')
     }
 
-    return {
-      ok: true,
-      data: response.data.blogPostCollection.items[0]
-    }
+    return APIResponse(true, response.data.blogPostCollection.items[0])
   } catch (error) {
     console.error('Error fetching blog post', JSON.stringify(error))
-    return {
-      ok: false,
-      error
-    }
+    return APIResponse(false, null, error)
   }
 }

@@ -7,7 +7,10 @@ import Head from 'next/head';
 import dayjs from 'dayjs';
 import AppTime from 'components/UI/AppTime';
 
-const BlogDetails: FunctionComponent<IProps> = ({ blogPost }) => {
+const BlogDetails: FunctionComponent<IProps> = ({
+  blogPost,
+  latestBlogPosts,
+}) => {
   const currentYear = dayjs().year();
 
   return (
@@ -16,7 +19,7 @@ const BlogDetails: FunctionComponent<IProps> = ({ blogPost }) => {
         {/* <title>{data.title}</title> */}
         <title>Test</title>
       </Head>
-      <BlogLayout>
+      <BlogLayout latestBlogPosts={latestBlogPosts}>
         <Stack>
           {/* Header */}
           <Stack className='h-[300px] bg-gray-100 p-8 justify-center'>

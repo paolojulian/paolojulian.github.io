@@ -8,7 +8,7 @@ export type AppTimeProps = {
 
 const AppTime: FunctionComponent<AppTimeProps> = ({
   dateTime,
-  format = 'DD-MMM-YYYY HH:mm',
+  format = 'DD-MMM-YYYY hh:mm A',
 }) => {
   const formattedDateTime = useMemo(
     () => dayjs(dateTime).format(format),
