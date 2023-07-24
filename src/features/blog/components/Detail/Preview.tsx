@@ -7,24 +7,22 @@ import Head from 'next/head';
 import dayjs from 'dayjs';
 import AppTime from 'components/UI/AppTime';
 
-const BlogDetails: FunctionComponent<IProps> = ({
-  blogPost,
-  latestBlogPosts,
-}) => {
+const PreviewBlogDetails: FunctionComponent<IProps> = ({ blogPost }) => {
   const currentYear = dayjs().year();
 
   return (
     <>
       <Head>
-        <title>{blogPost.title}</title>
+        <title>Preview</title>
       </Head>
-      <BlogLayout latestBlogPosts={latestBlogPosts}>
+      <BlogLayout latestBlogPosts={[]}>
         <Stack>
           {/* Header */}
           <Stack className='h-[300px] bg-gray-100 p-8 justify-center'>
             <h1 className='font-bold text-6xl'>{blogPost.title}</h1>
             <p className='italic text-slate-500'>
-              Published on <AppTime dateTime={blogPost.sys.publishedAt} />
+              Published on{' '}
+              <AppTime dateTime={dayjs().format('DD-MMM-YYYY hh:mm A')} />
             </p>
           </Stack>
           <div className='px-4 md:px-8 md:mb-32'>
@@ -42,4 +40,4 @@ const BlogDetails: FunctionComponent<IProps> = ({
   );
 };
 
-export default BlogDetails;
+export default PreviewBlogDetails;

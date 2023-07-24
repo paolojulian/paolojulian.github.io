@@ -3,13 +3,13 @@ import { gql } from "@apollo/client";
 import { BlogPostCollection } from "../types/contentful";
 import { APIResponse, IAPIResponse } from "utils/api";
 
-const apiClient = apolloClient();
 
 export async function getBlogPostSlugs(): Promise<IAPIResponse<BlogPostCollection[]>> {
+  const apiClient = apolloClient({ preview: true });
   const entries = await apiClient.query({
     query: gql`
       query GetBlogPostSlugs {
-        blogPostCollection {
+        blogPostCollection(preview: true) {
             items {
               slug
             }
@@ -21,43 +21,14 @@ export async function getBlogPostSlugs(): Promise<IAPIResponse<BlogPostCollectio
   return APIResponse(true, entries.data.blogPostCollection.items)
 }
 
-export async function getLatestBlogPosts(limit = 5): Promise<IAPIResponse<BlogPostCollection[]>> {
-  try {
-
-    const entries = await apiClient.query({
-      query: gql`
-      query GetLatestBlogPosts($limit: Int!) {
-        blogPostCollection(limit: $limit) {
-            items {
-              title
-              content
-              description
-              slug
-              sys {
-                publishedAt
-              }
-            }
-        }
-      }
-    `,
-      variables: {
-        limit
-      }
-    })
-
-    return APIResponse(true, entries.data.blogPostCollection.items);
-  } catch (e) {
-    console.error(JSON.stringify(e))
-    throw e
-  }
-}
 
 export async function getBlogPostBySlug(slug: string): Promise<IAPIResponse<BlogPostCollection, any>> {
+  const apiClient = apolloClient({ preview: true });
   try {
     const response = await apiClient.query({
       query: gql`
         query GetBlogPostBySlug($slug: String!) {
-          blogPostCollection(limit: 1, where: { slug: $slug }) {
+          blogPostCollection(limit: 1, where: { slug: $slug }, preview: true) {
             items {
               title
               content

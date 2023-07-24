@@ -62,6 +62,7 @@ const BlogLayout: FunctionComponent<BlogLayoutProps> = ({
                 <Stack className='space-y-2'>
                   {latestBlogPosts.map((blogPost) => (
                     <Link
+                      key={blogPost.slug}
                       href={`/blogs/${blogPost.slug}`}
                       className='md:hover:bg-slate-100 md:active:bg-slate-200 transition-colors px-8 py-4'
                     >

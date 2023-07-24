@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
     return {
       redirect: {
         permanent: true,
-        destination: '/error',
+        destination: '/not-found',
       },
     };
   }
