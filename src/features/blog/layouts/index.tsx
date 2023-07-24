@@ -7,7 +7,7 @@ import HomeIcon from '../components/icons/home-icon';
 import BloggerIcon from '../components/icons/blogger-icon';
 import AppsIcon from '../components/icons/apps-icon';
 import NavIconButton from '../components/common/nav-icon-btn';
-import { IProps } from 'pages/blogs/[id]';
+import { IProps } from 'pages/blogs/[slug]';
 import AppTime from 'components/UI/AppTime';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -54,15 +54,17 @@ const BlogLayout: FunctionComponent<BlogLayoutProps> = ({
                 </Row>
               </div>
 
-              <Stack className='px-8 space-y-4'>
-                <Row className='justify-between'>
-                  <h3>Blogs</h3>
-                  <button>Newest</button>
+              <Stack className='space-y-4'>
+                <Row className='justify-between px-8'>
+                  <h3 className='text-slate-600'>blogs</h3>
                 </Row>
 
-                <Stack className='space-y-8'>
+                <Stack className='space-y-2'>
                   {latestBlogPosts.map((blogPost) => (
-                    <Link href={`/blogs/${blogPost.slug}`}>
+                    <Link
+                      href={`/blogs/${blogPost.slug}`}
+                      className='md:hover:bg-slate-100 md:active:bg-slate-200 transition-colors px-8 py-4'
+                    >
                       <Row className='items-center'>
                         <div>
                           <h3 className='line-clamp-1 text-gray-800 font-bold'>

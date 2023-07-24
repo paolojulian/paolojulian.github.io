@@ -32,7 +32,6 @@ export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
   ]);
 
   if (blogPostDetailsResponse.ok === false) {
-    console.log('Here?');
     return {
       redirect: {
         permanent: true,
@@ -68,8 +67,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       slug: blogPost.slug,
     },
   }));
-  console.log(paths);
-  // const paths = ['html-fundamentals'];
 
   return {
     paths,

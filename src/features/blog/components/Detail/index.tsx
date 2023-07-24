@@ -1,7 +1,7 @@
 import BlogLayout from 'features/blog/layouts';
 import React, { FunctionComponent } from 'react';
 import BlogPost from '../common/blog-post';
-import { IProps } from 'pages/blogs/[id]';
+import { IProps } from 'pages/blogs/[slug]';
 import Stack from 'layouts/Stack';
 import Head from 'next/head';
 import dayjs from 'dayjs';
