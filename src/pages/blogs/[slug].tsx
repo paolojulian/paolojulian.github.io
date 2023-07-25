@@ -14,6 +14,7 @@ export interface IProps {
 }
 
 export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
+  console.log(params);
   if (typeof params.slug !== 'string') {
     return {
       redirect: {

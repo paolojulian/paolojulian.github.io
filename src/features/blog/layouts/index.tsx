@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { Manrope } from '@next/font/google';
 import Row from 'layouts/Row';
 import Stack from 'layouts/Stack';
-import IconButton from 'components/Buttons/IconButton';
 import HomeIcon from '../components/icons/home-icon';
 import BloggerIcon from '../components/icons/blogger-icon';
 import AppsIcon from '../components/icons/apps-icon';
@@ -11,8 +9,7 @@ import { IProps } from 'pages/blogs/[slug]';
 import AppTime from 'components/UI/AppTime';
 import classNames from 'classnames';
 import Link from 'next/link';
-
-const font = Manrope({ subsets: ['latin'] });
+import styles from './index.module.scss';
 
 export type BlogLayoutProps = {
   children: React.ReactNode;
@@ -24,7 +21,7 @@ const BlogLayout: FunctionComponent<BlogLayoutProps> = ({
   latestBlogPosts,
 }) => {
   return (
-    <div className={classNames('bg-[#ece8e1]-back', font.className)}>
+    <div className={classNames('bg-[#ece8e1]-back', styles.container)}>
       <div className='max-w-screen-xl mx-auto'>
         <Row>
           <nav className='sticky top-0 h-screen border-r border-gray-200 p-2 hidden md:block'>
